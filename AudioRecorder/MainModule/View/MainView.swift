@@ -7,10 +7,19 @@
 
 import UIKit
 
-class MainView: UIViewController {
+class MainView: UIViewController, MainViewProtocol {
+    
+    var presenter: MainPresenterProtocol? {
+        didSet {
+            print("Presenter Set")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .yellow
+        
     }
 
 
