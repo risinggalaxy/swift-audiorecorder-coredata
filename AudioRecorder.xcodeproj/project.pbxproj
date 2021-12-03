@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		738A26B92757775B00F89B9E /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26B82757775B00F89B9E /* MainInteractor.swift */; };
-		738A26BB2757776800F89B9E /* MainInteractorOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26BA2757776800F89B9E /* MainInteractorOutputProtocol.swift */; };
-		738A26BD2757777600F89B9E /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26BC2757777600F89B9E /* MainPresenterProtocol.swift */; };
-		738A26BF2757779F00F89B9E /* MainInteractorInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26BE2757779F00F89B9E /* MainInteractorInputProtocol.swift */; };
+		738A26B92757775B00F89B9E /* RecordingListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26B82757775B00F89B9E /* RecordingListInteractor.swift */; };
+		738A26BB2757776800F89B9E /* RecordingListInteractorOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26BA2757776800F89B9E /* RecordingListInteractorOutputProtocol.swift */; };
+		738A26BD2757777600F89B9E /* RecordingListModulePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26BC2757777600F89B9E /* RecordingListModulePresenterProtocol.swift */; };
+		738A26BF2757779F00F89B9E /* RecordingListModuleInteractorInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26BE2757779F00F89B9E /* RecordingListModuleInteractorInputProtocol.swift */; };
 		738A26C1275777A800F89B9E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C0275777A800F89B9E /* MainPresenter.swift */; };
-		738A26C3275777B500F89B9E /* MainWireFrameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C2275777B500F89B9E /* MainWireFrameProtocol.swift */; };
-		738A26C5275777BC00F89B9E /* MainWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C4275777BC00F89B9E /* MainWireFrame.swift */; };
-		738A26C8275777E700F89B9E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C7275777E700F89B9E /* Router.swift */; };
-		738A26CA27577D6E00F89B9E /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C927577D6E00F89B9E /* MainViewProtocol.swift */; };
+		738A26C3275777B500F89B9E /* RecordingListWireFrameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C2275777B500F89B9E /* RecordingListWireFrameProtocol.swift */; };
+		738A26C5275777BC00F89B9E /* RecordingListWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C4275777BC00F89B9E /* RecordingListWireFrame.swift */; };
+		738A26CA27577D6E00F89B9E /* RecordingListModuleViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26C927577D6E00F89B9E /* RecordingListModuleViewProtocol.swift */; };
+		738A26D12757878700F89B9E /* RecorderModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26D02757878700F89B9E /* RecorderModuleView.swift */; };
+		738A26D3275787A000F89B9E /* RecorderModuleViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26D2275787A000F89B9E /* RecorderModuleViewProtocol.swift */; };
+		738A26D5275787AA00F89B9E /* RecorderModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26D4275787AA00F89B9E /* RecorderModuleInteractor.swift */; };
+		738A26D7275787B700F89B9E /* RecorderModuleInteractorInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26D6275787B700F89B9E /* RecorderModuleInteractorInputProtocol.swift */; };
+		738A26D9275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26D8275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift */; };
+		738A26DB275787D100F89B9E /* RecorderModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26DA275787D100F89B9E /* RecorderModulePresenter.swift */; };
+		738A26DD275787DA00F89B9E /* RecorderModulePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26DC275787DA00F89B9E /* RecorderModulePresenterProtocol.swift */; };
+		738A26DF275787E700F89B9E /* RecorderModuleWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26DE275787E700F89B9E /* RecorderModuleWireFrame.swift */; };
+		738A26E1275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26E0275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift */; };
+		738A26E327578A9400F89B9E /* RecordingListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26E227578A9400F89B9E /* RecordingListInteractorOutput.swift */; };
+		738A26E527578B2100F89B9E /* RecorderModuleInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A26E427578B2100F89B9E /* RecorderModuleInteractorOutput.swift */; };
 		73944530275506D400075F30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7394452F275506D400075F30 /* AppDelegate.swift */; };
 		73944532275506D400075F30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73944531275506D400075F30 /* SceneDelegate.swift */; };
-		73944534275506D400075F30 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73944533275506D400075F30 /* MainView.swift */; };
+		73944534275506D400075F30 /* RecordingListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73944533275506D400075F30 /* RecordingListModule.swift */; };
 		7394453A275506D400075F30 /* AudioRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73944538275506D400075F30 /* AudioRecorder.xcdatamodeld */; };
 		7394453C275506D600075F30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7394453B275506D600075F30 /* Assets.xcassets */; };
 		7394453F275506D600075F30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7394453D275506D600075F30 /* LaunchScreen.storyboard */; };
+		73C0FC19275A64EB00ED0846 /* MainControllerWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */; };
+		73C0FC1B275A651300ED0846 /* MainControllerWireFrameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,25 +54,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		738A26B82757775B00F89B9E /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
-		738A26BA2757776800F89B9E /* MainInteractorOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractorOutputProtocol.swift; sourceTree = "<group>"; };
-		738A26BC2757777600F89B9E /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
-		738A26BE2757779F00F89B9E /* MainInteractorInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractorInputProtocol.swift; sourceTree = "<group>"; };
+		738A26B82757775B00F89B9E /* RecordingListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListInteractor.swift; sourceTree = "<group>"; };
+		738A26BA2757776800F89B9E /* RecordingListInteractorOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListInteractorOutputProtocol.swift; sourceTree = "<group>"; };
+		738A26BC2757777600F89B9E /* RecordingListModulePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModulePresenterProtocol.swift; sourceTree = "<group>"; };
+		738A26BE2757779F00F89B9E /* RecordingListModuleInteractorInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModuleInteractorInputProtocol.swift; sourceTree = "<group>"; };
 		738A26C0275777A800F89B9E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		738A26C2275777B500F89B9E /* MainWireFrameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWireFrameProtocol.swift; sourceTree = "<group>"; };
-		738A26C4275777BC00F89B9E /* MainWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWireFrame.swift; sourceTree = "<group>"; };
-		738A26C7275777E700F89B9E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		738A26C927577D6E00F89B9E /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		738A26C2275777B500F89B9E /* RecordingListWireFrameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListWireFrameProtocol.swift; sourceTree = "<group>"; };
+		738A26C4275777BC00F89B9E /* RecordingListWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListWireFrame.swift; sourceTree = "<group>"; };
+		738A26C927577D6E00F89B9E /* RecordingListModuleViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModuleViewProtocol.swift; sourceTree = "<group>"; };
+		738A26D02757878700F89B9E /* RecorderModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleView.swift; sourceTree = "<group>"; };
+		738A26D2275787A000F89B9E /* RecorderModuleViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleViewProtocol.swift; sourceTree = "<group>"; };
+		738A26D4275787AA00F89B9E /* RecorderModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleInteractor.swift; sourceTree = "<group>"; };
+		738A26D6275787B700F89B9E /* RecorderModuleInteractorInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleInteractorInputProtocol.swift; sourceTree = "<group>"; };
+		738A26D8275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleInteractorOutputProtocol.swift; sourceTree = "<group>"; };
+		738A26DA275787D100F89B9E /* RecorderModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModulePresenter.swift; sourceTree = "<group>"; };
+		738A26DC275787DA00F89B9E /* RecorderModulePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModulePresenterProtocol.swift; sourceTree = "<group>"; };
+		738A26DE275787E700F89B9E /* RecorderModuleWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleWireFrame.swift; sourceTree = "<group>"; };
+		738A26E0275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleWireFrameProtocol.swift; sourceTree = "<group>"; };
+		738A26E227578A9400F89B9E /* RecordingListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListInteractorOutput.swift; sourceTree = "<group>"; };
+		738A26E427578B2100F89B9E /* RecorderModuleInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleInteractorOutput.swift; sourceTree = "<group>"; };
 		7394452C275506D400075F30 /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7394452F275506D400075F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73944531275506D400075F30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		73944533275506D400075F30 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		73944533275506D400075F30 /* RecordingListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModule.swift; sourceTree = "<group>"; };
 		73944539275506D400075F30 /* AudioRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioRecorder.xcdatamodel; sourceTree = "<group>"; };
 		7394453B275506D600075F30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7394453E275506D600075F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73944540275506D600075F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73944545275506D700075F30 /* AudioRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7394454F275506D700075F30 /* AudioRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrame.swift; sourceTree = "<group>"; };
+		73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrameProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +112,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		738A26C6275777C100F89B9E /* Router */ = {
+		738A26CB2757873D00F89B9E /* RecorderModule */ = {
 			isa = PBXGroup;
 			children = (
-				738A26C7275777E700F89B9E /* Router.swift */,
+				738A26CC2757874A00F89B9E /* View */,
+				738A26CD2757875000F89B9E /* Interactor */,
+				738A26CE2757875700F89B9E /* Presenter */,
+				738A26CF2757875E00F89B9E /* WireFrame */,
 			);
-			path = Router;
+			path = RecorderModule;
+			sourceTree = "<group>";
+		};
+		738A26CC2757874A00F89B9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				738A26D02757878700F89B9E /* RecorderModuleView.swift */,
+				738A26D2275787A000F89B9E /* RecorderModuleViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		738A26CD2757875000F89B9E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				738A26D4275787AA00F89B9E /* RecorderModuleInteractor.swift */,
+				738A26D6275787B700F89B9E /* RecorderModuleInteractorInputProtocol.swift */,
+				738A26D8275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift */,
+				738A26E427578B2100F89B9E /* RecorderModuleInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		738A26CE2757875700F89B9E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				738A26DA275787D100F89B9E /* RecorderModulePresenter.swift */,
+				738A26DC275787DA00F89B9E /* RecorderModulePresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		738A26CF2757875E00F89B9E /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				738A26DE275787E700F89B9E /* RecorderModuleWireFrame.swift */,
+				738A26E0275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift */,
+			);
+			path = WireFrame;
 			sourceTree = "<group>";
 		};
 		73944523275506D400075F30 = {
@@ -119,8 +184,8 @@
 		7394452E275506D400075F30 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				738A26C6275777C100F89B9E /* Router */,
-				739445662755075F00075F30 /* MainModule */,
+				739445662755075F00075F30 /* RecordingListModule */,
+				738A26CB2757873D00F89B9E /* RecorderModule */,
 				739445632755073E00075F30 /* Application */,
 				739445642755074B00075F30 /* Model */,
 				73944540275506D600075F30 /* Info.plist */,
@@ -147,8 +212,8 @@
 		739445622755073600075F30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				73944533275506D400075F30 /* MainView.swift */,
-				738A26C927577D6E00F89B9E /* MainViewProtocol.swift */,
+				73944533275506D400075F30 /* RecordingListModule.swift */,
+				738A26C927577D6E00F89B9E /* RecordingListModuleViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,29 +239,31 @@
 		739445652755075400075F30 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				738A26BC2757777600F89B9E /* MainPresenterProtocol.swift */,
+				738A26BC2757777600F89B9E /* RecordingListModulePresenterProtocol.swift */,
 				738A26C0275777A800F89B9E /* MainPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		739445662755075F00075F30 /* MainModule */ = {
+		739445662755075F00075F30 /* RecordingListModule */ = {
 			isa = PBXGroup;
 			children = (
+				73C0FC15275A64CC00ED0846 /* NavigationBuilder */,
 				739445622755073600075F30 /* View */,
 				739445672755077800075F30 /* Interactor */,
 				739445652755075400075F30 /* Presenter */,
 				739445682755078300075F30 /* WireFrame */,
 			);
-			path = MainModule;
+			path = RecordingListModule;
 			sourceTree = "<group>";
 		};
 		739445672755077800075F30 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				738A26B82757775B00F89B9E /* MainInteractor.swift */,
-				738A26BA2757776800F89B9E /* MainInteractorOutputProtocol.swift */,
-				738A26BE2757779F00F89B9E /* MainInteractorInputProtocol.swift */,
+				738A26B82757775B00F89B9E /* RecordingListInteractor.swift */,
+				738A26E227578A9400F89B9E /* RecordingListInteractorOutput.swift */,
+				738A26BA2757776800F89B9E /* RecordingListInteractorOutputProtocol.swift */,
+				738A26BE2757779F00F89B9E /* RecordingListModuleInteractorInputProtocol.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -204,8 +271,8 @@
 		739445682755078300075F30 /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
-				738A26C2275777B500F89B9E /* MainWireFrameProtocol.swift */,
-				738A26C4275777BC00F89B9E /* MainWireFrame.swift */,
+				738A26C2275777B500F89B9E /* RecordingListWireFrameProtocol.swift */,
+				738A26C4275777BC00F89B9E /* RecordingListWireFrame.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -215,6 +282,15 @@
 			children = (
 			);
 			path = MainModule;
+			sourceTree = "<group>";
+		};
+		73C0FC15275A64CC00ED0846 /* NavigationBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */,
+				73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */,
+			);
+			path = NavigationBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,19 +423,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73944534275506D400075F30 /* MainView.swift in Sources */,
+				73944534275506D400075F30 /* RecordingListModule.swift in Sources */,
 				73944530275506D400075F30 /* AppDelegate.swift in Sources */,
-				738A26BF2757779F00F89B9E /* MainInteractorInputProtocol.swift in Sources */,
-				738A26C5275777BC00F89B9E /* MainWireFrame.swift in Sources */,
-				738A26C8275777E700F89B9E /* Router.swift in Sources */,
+				738A26BF2757779F00F89B9E /* RecordingListModuleInteractorInputProtocol.swift in Sources */,
+				73C0FC19275A64EB00ED0846 /* MainControllerWireFrame.swift in Sources */,
+				738A26C5275777BC00F89B9E /* RecordingListWireFrame.swift in Sources */,
+				73C0FC1B275A651300ED0846 /* MainControllerWireFrameProtocol.swift in Sources */,
+				738A26DD275787DA00F89B9E /* RecorderModulePresenterProtocol.swift in Sources */,
+				738A26E1275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift in Sources */,
+				738A26D9275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift in Sources */,
 				7394453A275506D400075F30 /* AudioRecorder.xcdatamodeld in Sources */,
+				738A26D12757878700F89B9E /* RecorderModuleView.swift in Sources */,
 				738A26C1275777A800F89B9E /* MainPresenter.swift in Sources */,
-				738A26C3275777B500F89B9E /* MainWireFrameProtocol.swift in Sources */,
-				738A26BD2757777600F89B9E /* MainPresenterProtocol.swift in Sources */,
-				738A26CA27577D6E00F89B9E /* MainViewProtocol.swift in Sources */,
-				738A26BB2757776800F89B9E /* MainInteractorOutputProtocol.swift in Sources */,
-				738A26B92757775B00F89B9E /* MainInteractor.swift in Sources */,
+				738A26C3275777B500F89B9E /* RecordingListWireFrameProtocol.swift in Sources */,
+				738A26E327578A9400F89B9E /* RecordingListInteractorOutput.swift in Sources */,
+				738A26BD2757777600F89B9E /* RecordingListModulePresenterProtocol.swift in Sources */,
+				738A26E527578B2100F89B9E /* RecorderModuleInteractorOutput.swift in Sources */,
+				738A26CA27577D6E00F89B9E /* RecordingListModuleViewProtocol.swift in Sources */,
+				738A26D3275787A000F89B9E /* RecorderModuleViewProtocol.swift in Sources */,
+				738A26BB2757776800F89B9E /* RecordingListInteractorOutputProtocol.swift in Sources */,
+				738A26DF275787E700F89B9E /* RecorderModuleWireFrame.swift in Sources */,
+				738A26D5275787AA00F89B9E /* RecorderModuleInteractor.swift in Sources */,
+				738A26DB275787D100F89B9E /* RecorderModulePresenter.swift in Sources */,
+				738A26B92757775B00F89B9E /* RecordingListInteractor.swift in Sources */,
 				73944532275506D400075F30 /* SceneDelegate.swift in Sources */,
+				738A26D7275787B700F89B9E /* RecorderModuleInteractorInputProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

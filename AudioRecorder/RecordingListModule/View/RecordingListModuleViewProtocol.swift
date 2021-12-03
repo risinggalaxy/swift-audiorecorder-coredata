@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol MainViewProtocol {
+protocol RecordingListModuleViewProtocol {
     
-    var presenter: MainPresenterProtocol? { get set }
+    var presenter: RecordingListModulePresenterProtocol? { get set }
     
 }

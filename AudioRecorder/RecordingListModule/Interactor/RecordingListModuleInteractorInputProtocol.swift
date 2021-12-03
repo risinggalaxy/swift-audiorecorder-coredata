@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol MainInteractorInputProtocol {
+protocol RecordingListModuleInteractorInputProtocol {
     
-    var presenter: MainPresenterProtocol? { get set }
+    var presenter: RecordingListModulePresenterProtocol? { get set }
     
 }

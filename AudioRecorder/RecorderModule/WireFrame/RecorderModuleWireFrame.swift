@@ -1,23 +1,20 @@
 //
-//  MainWireFrame.swift
+//  RecorderModuleWireFrame.swift
 //  AudioRecorder
 //
 //  Created by YASSER FARAHI on 01/12/2021.
 //
 
-import Foundation
 import UIKit
 
-class MainWireFrameView: MainViewWireFrameProtocol {
+class RecorderModuleWireFrame: RecorderModuleWireFrameProtocol {
     
-    
-    
-    static func showMainViewController() -> VIEW {
+    static func shouldReturnView() -> VIEW {
         
-        let view = MainView()
-        let interactor = MainInteractor()
-        let presenter = MainPresenter()
-        let wireFrame = MainWireFrameView()
+        let view = RecorderModuleView()
+        let interactor = RecorderModuleInteractor()
+        let presenter = RecorderModulePresenter()
+        let wireFrame = RecorderModuleWireFrame()
         
         view.presenter = presenter
         interactor.presenter = presenter
@@ -29,7 +26,5 @@ class MainWireFrameView: MainViewWireFrameProtocol {
         
     }
     
-    
-    
-    
 }
+
