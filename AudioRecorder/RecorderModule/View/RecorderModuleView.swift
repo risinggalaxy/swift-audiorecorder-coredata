@@ -9,6 +9,7 @@ import UIKit
 
 class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
     
+    var viewTitle: String! = "Audio Recorder"
     var presenter: RecorderModulePresenterProtocol?
     
     override func viewDidLoad() {

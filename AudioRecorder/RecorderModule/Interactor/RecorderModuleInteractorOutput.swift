@@ -7,8 +7,8 @@
 
 import Foundation
 
-class RecorderModuleInteractorOutput: RecordingListInteractorOutputProtocol {
+class RecorderModuleInteractorOutput: RecorderModuleOutputInteractorProtocol {
     
-    var presenter: RecordingListModuleInteractorInputProtocol?
+    var presenter: RecorderModuleInputInteractorProtocol?
     
 }

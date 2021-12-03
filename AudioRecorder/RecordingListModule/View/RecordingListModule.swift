@@ -9,6 +9,7 @@ import UIKit
 
 class RecordingListModule: UIViewController, RecordingListModuleViewProtocol {
     
+    var viewTitle: String! = "Recordings"
     var presenter: RecordingListModulePresenterProtocol?
 
     override func viewDidLoad() {
@@ -20,7 +21,7 @@ class RecordingListModule: UIViewController, RecordingListModuleViewProtocol {
     
     fileprivate func setupBarButtonItem() {
         let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "circle.fill"), style: .plain, target: self, action: #selector(presentRecorderView))
-        barButtonItem.tintColor = .red
+        barButtonItem.tintColor = AppColors.recordButtonColor
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
     

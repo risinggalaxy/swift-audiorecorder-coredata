@@ -10,25 +10,50 @@ import UIKit
 
 class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
     
-    static func shouldReturnView(navigationBuilder: (UIViewController) -> (UINavigationController)) -> VIEW {
+//    static func shouldReturnView(navigationBuilder: (UIViewController) -> (UINavigationController)) -> VIEW {
+//        let view = RecordingListModule()
+//        let interactor = RecordingListInteractor()
+//        let presenter = RecordingListPresenter()
+//        let wireFrame = RecordingListWireFrameView()
+//
+//        view.presenter = presenter
+//        interactor.presenter = presenter
+//        presenter.view = view
+//        presenter.interactor = interactor
+//        presenter.wireFrame = wireFrame
+//        view.title = "Recordings"
+//
+//        return navigationBuilder(view)
+//
+//    }
+//
+//    func shouldPresentRecordingView(view: VIEW){
+//        view.present(RecorderModuleWireFrame.shouldReturnView(), animated: true, completion: nil)
+//    }
+    
+    static func shouldReturnView() -> VIEW {
         let view = RecordingListModule()
         let interactor = RecordingListInteractor()
+        let interactorOutput = RecordingListInteractorOutput()
         let presenter = RecordingListPresenter()
         let wireFrame = RecordingListWireFrameView()
         
         view.presenter = presenter
         interactor.presenter = presenter
+        interactorOutput.presenter = interactor
         presenter.view = view
         presenter.interactor = interactor
         presenter.wireFrame = wireFrame
-        view.title = "Recordings"
+        view.title = view.viewTitle
     
-        return navigationBuilder(view)
+        return view
         
     }
     
     func shouldPresentRecordingView(module: VIEW){
-        module.present(RecorderModuleWireFrame.shouldReturnView(), animated: true, completion: nil)
+        let recordingModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),
+                                                             showNavigationBar: false, largeTitle: false)
+        module.present(recordingModule, animated: true, completion: nil)
     }
     
 }

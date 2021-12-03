@@ -34,6 +34,17 @@
 		7394453F275506D600075F30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7394453D275506D600075F30 /* LaunchScreen.storyboard */; };
 		73C0FC19275A64EB00ED0846 /* MainControllerWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */; };
 		73C0FC1B275A651300ED0846 /* MainControllerWireFrameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */; };
+		73C0FC1E275A74CA00ED0846 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC1D275A74CA00ED0846 /* AppColors.swift */; };
+		73C0FC22275A777F00ED0846 /* PlayerModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC21275A777F00ED0846 /* PlayerModuleView.swift */; };
+		73C0FC28275A77B600ED0846 /* PlayerModuleViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC27275A77B600ED0846 /* PlayerModuleViewProtocol.swift */; };
+		73C0FC2A275A77C000ED0846 /* PlayerModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC29275A77C000ED0846 /* PlayerModuleInteractor.swift */; };
+		73C0FC2C275A77D500ED0846 /* PlayerModuleInteractorInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC2B275A77D500ED0846 /* PlayerModuleInteractorInputProtocol.swift */; };
+		73C0FC2E275A77E600ED0846 /* PlayerModuleInteractorOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC2D275A77E600ED0846 /* PlayerModuleInteractorOutputProtocol.swift */; };
+		73C0FC30275A77ED00ED0846 /* PlayerModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC2F275A77ED00ED0846 /* PlayerModulePresenter.swift */; };
+		73C0FC32275A77F800ED0846 /* PlayerModulePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC31275A77F800ED0846 /* PlayerModulePresenterProtocol.swift */; };
+		73C0FC34275A780200ED0846 /* PlayerModuleWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC33275A780200ED0846 /* PlayerModuleWireFrame.swift */; };
+		73C0FC36275A780800ED0846 /* PlayerModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC35275A780800ED0846 /* PlayerModuleProtocols.swift */; };
+		73C0FC38275A848B00ED0846 /* PlayerModuleInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC37275A848B00ED0846 /* PlayerModuleInteractorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +96,17 @@
 		7394454F275506D700075F30 /* AudioRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrame.swift; sourceTree = "<group>"; };
 		73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrameProtocol.swift; sourceTree = "<group>"; };
+		73C0FC1D275A74CA00ED0846 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		73C0FC21275A777F00ED0846 /* PlayerModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleView.swift; sourceTree = "<group>"; };
+		73C0FC27275A77B600ED0846 /* PlayerModuleViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleViewProtocol.swift; sourceTree = "<group>"; };
+		73C0FC29275A77C000ED0846 /* PlayerModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleInteractor.swift; sourceTree = "<group>"; };
+		73C0FC2B275A77D500ED0846 /* PlayerModuleInteractorInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleInteractorInputProtocol.swift; sourceTree = "<group>"; };
+		73C0FC2D275A77E600ED0846 /* PlayerModuleInteractorOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleInteractorOutputProtocol.swift; sourceTree = "<group>"; };
+		73C0FC2F275A77ED00ED0846 /* PlayerModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModulePresenter.swift; sourceTree = "<group>"; };
+		73C0FC31275A77F800ED0846 /* PlayerModulePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModulePresenterProtocol.swift; sourceTree = "<group>"; };
+		73C0FC33275A780200ED0846 /* PlayerModuleWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleWireFrame.swift; sourceTree = "<group>"; };
+		73C0FC35275A780800ED0846 /* PlayerModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleProtocols.swift; sourceTree = "<group>"; };
+		73C0FC37275A848B00ED0846 /* PlayerModuleInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModuleInteractorOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,8 +206,11 @@
 		7394452E275506D400075F30 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				73C0FC1F275A755000ED0846 /* AppConstans */,
+				73C0FC15275A64CC00ED0846 /* NavigationBuilder */,
 				739445662755075F00075F30 /* RecordingListModule */,
 				738A26CB2757873D00F89B9E /* RecorderModule */,
+				73C0FC20275A776300ED0846 /* PlayerModule */,
 				739445632755073E00075F30 /* Application */,
 				739445642755074B00075F30 /* Model */,
 				73944540275506D600075F30 /* Info.plist */,
@@ -248,7 +273,6 @@
 		739445662755075F00075F30 /* RecordingListModule */ = {
 			isa = PBXGroup;
 			children = (
-				73C0FC15275A64CC00ED0846 /* NavigationBuilder */,
 				739445622755073600075F30 /* View */,
 				739445672755077800075F30 /* Interactor */,
 				739445652755075400075F30 /* Presenter */,
@@ -291,6 +315,63 @@
 				73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */,
 			);
 			path = NavigationBuilder;
+			sourceTree = "<group>";
+		};
+		73C0FC1F275A755000ED0846 /* AppConstans */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC1D275A74CA00ED0846 /* AppColors.swift */,
+			);
+			path = AppConstans;
+			sourceTree = "<group>";
+		};
+		73C0FC20275A776300ED0846 /* PlayerModule */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC23275A778300ED0846 /* View */,
+				73C0FC24275A778A00ED0846 /* Interactor */,
+				73C0FC25275A779000ED0846 /* Presenter */,
+				73C0FC26275A779800ED0846 /* WireFrame */,
+			);
+			path = PlayerModule;
+			sourceTree = "<group>";
+		};
+		73C0FC23275A778300ED0846 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC21275A777F00ED0846 /* PlayerModuleView.swift */,
+				73C0FC27275A77B600ED0846 /* PlayerModuleViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73C0FC24275A778A00ED0846 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC29275A77C000ED0846 /* PlayerModuleInteractor.swift */,
+				73C0FC2B275A77D500ED0846 /* PlayerModuleInteractorInputProtocol.swift */,
+				73C0FC2D275A77E600ED0846 /* PlayerModuleInteractorOutputProtocol.swift */,
+				73C0FC37275A848B00ED0846 /* PlayerModuleInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		73C0FC25275A779000ED0846 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC2F275A77ED00ED0846 /* PlayerModulePresenter.swift */,
+				73C0FC31275A77F800ED0846 /* PlayerModulePresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		73C0FC26275A779800ED0846 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				73C0FC33275A780200ED0846 /* PlayerModuleWireFrame.swift */,
+				73C0FC35275A780800ED0846 /* PlayerModuleProtocols.swift */,
+			);
+			path = WireFrame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,12 +505,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				73944534275506D400075F30 /* RecordingListModule.swift in Sources */,
+				73C0FC30275A77ED00ED0846 /* PlayerModulePresenter.swift in Sources */,
+				73C0FC1E275A74CA00ED0846 /* AppColors.swift in Sources */,
+				73C0FC2C275A77D500ED0846 /* PlayerModuleInteractorInputProtocol.swift in Sources */,
+				73C0FC38275A848B00ED0846 /* PlayerModuleInteractorOutput.swift in Sources */,
 				73944530275506D400075F30 /* AppDelegate.swift in Sources */,
+				73C0FC32275A77F800ED0846 /* PlayerModulePresenterProtocol.swift in Sources */,
+				73C0FC22275A777F00ED0846 /* PlayerModuleView.swift in Sources */,
 				738A26BF2757779F00F89B9E /* RecordingListModuleInteractorInputProtocol.swift in Sources */,
 				73C0FC19275A64EB00ED0846 /* MainControllerWireFrame.swift in Sources */,
 				738A26C5275777BC00F89B9E /* RecordingListWireFrame.swift in Sources */,
 				73C0FC1B275A651300ED0846 /* MainControllerWireFrameProtocol.swift in Sources */,
+				73C0FC36275A780800ED0846 /* PlayerModuleProtocols.swift in Sources */,
 				738A26DD275787DA00F89B9E /* RecorderModulePresenterProtocol.swift in Sources */,
+				73C0FC28275A77B600ED0846 /* PlayerModuleViewProtocol.swift in Sources */,
 				738A26E1275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift in Sources */,
 				738A26D9275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift in Sources */,
 				7394453A275506D400075F30 /* AudioRecorder.xcdatamodeld in Sources */,
@@ -440,11 +529,14 @@
 				738A26BD2757777600F89B9E /* RecordingListModulePresenterProtocol.swift in Sources */,
 				738A26E527578B2100F89B9E /* RecorderModuleInteractorOutput.swift in Sources */,
 				738A26CA27577D6E00F89B9E /* RecordingListModuleViewProtocol.swift in Sources */,
+				73C0FC2E275A77E600ED0846 /* PlayerModuleInteractorOutputProtocol.swift in Sources */,
 				738A26D3275787A000F89B9E /* RecorderModuleViewProtocol.swift in Sources */,
+				73C0FC34275A780200ED0846 /* PlayerModuleWireFrame.swift in Sources */,
 				738A26BB2757776800F89B9E /* RecordingListInteractorOutputProtocol.swift in Sources */,
 				738A26DF275787E700F89B9E /* RecorderModuleWireFrame.swift in Sources */,
 				738A26D5275787AA00F89B9E /* RecorderModuleInteractor.swift in Sources */,
 				738A26DB275787D100F89B9E /* RecorderModulePresenter.swift in Sources */,
+				73C0FC2A275A77C000ED0846 /* PlayerModuleInteractor.swift in Sources */,
 				738A26B92757775B00F89B9E /* RecordingListInteractor.swift in Sources */,
 				73944532275506D400075F30 /* SceneDelegate.swift in Sources */,
 				738A26D7275787B700F89B9E /* RecorderModuleInteractorInputProtocol.swift in Sources */,

@@ -12,7 +12,10 @@ typealias VIEW = UIViewController
 
 protocol RecordingListViewWireFrameProtocol {
     
-    static func shouldReturnView(navigationBuilder: NavigationControllerGenerator ) -> VIEW
+//    static func shouldReturnView(navigationBuilder: NavigationControllerGenerator ) -> VIEW
+//    func shouldPresentRecordingView(module: VIEW)
+    
+    static func shouldReturnView() -> VIEW
     func shouldPresentRecordingView(module: VIEW)
     
 }

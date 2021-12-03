@@ -9,6 +9,7 @@ import Foundation
 
 protocol RecorderModuleViewProtocol {
     
+    var viewTitle: String! { get set }
     var presenter: RecorderModulePresenterProtocol? { get set }
     
 }

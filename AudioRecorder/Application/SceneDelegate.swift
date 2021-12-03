@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let uiWindow = UIWindow(windowScene: windowScene)
         window = uiWindow
-        uiWindow.rootViewController = RecordingListWireFrameView.shouldReturnView(navigationBuilder: NavigationGenerator.buildNavigation(rootView:))
+//        uiWindow.rootViewController = RecordingListWireFrameView.shouldReturnView(navigationBuilder: NavigationGenerator.buildNavigation(rootView:))
+        uiWindow.rootViewController = NavigationGenerator.buildNavigation(rootView: RecordingListWireFrameView.shouldReturnView(), showNavigationBar: true, largeTitle: true)
         uiWindow.makeKeyAndVisible()
     }
 
