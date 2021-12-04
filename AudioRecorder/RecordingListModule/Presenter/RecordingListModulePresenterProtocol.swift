@@ -9,9 +9,9 @@ import Foundation
 
 protocol RecordingListModulePresenterProtocol {
     
-    var view: RecordingListModule? { get set }
+    var view: RecordingListModuleView? { get set }
     var interactor: RecordingListModuleInteractorInputProtocol? { get set }
-    var wireFrame: RecordingListViewWireFrameProtocol? { get set }
+    var wireFrame: RecordingListModuleWireFrameProtocol? { get set }
     
     func presentRecordingView(module: VIEW)
     

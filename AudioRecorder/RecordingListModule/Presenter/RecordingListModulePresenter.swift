@@ -7,13 +7,13 @@
 
 import Foundation
 
-class RecordingListPresenter: RecordingListModulePresenterProtocol {
+class RecordingLisModulePresenter: RecordingListModulePresenterProtocol {
     
-    var view: RecordingListModule?
+    var view: RecordingListModuleView?
     
     var interactor: RecordingListModuleInteractorInputProtocol?
     
-    var wireFrame: RecordingListViewWireFrameProtocol?
+    var wireFrame: RecordingListModuleWireFrameProtocol?
     
     func presentRecordingView(module: VIEW) {
         wireFrame?.shouldPresentRecordingView(module: module)

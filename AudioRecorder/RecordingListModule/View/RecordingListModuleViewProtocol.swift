@@ -7,9 +7,10 @@
 
 import Foundation
 
-protocol RecordingListModuleViewProtocol {
+protocol RecordingListModuleViewProtocol: AnyObject {
     
     var viewTitle: String! { get set }
     var presenter: RecordingListModulePresenterProtocol? { get set }
+    func reloadData()
     
 }

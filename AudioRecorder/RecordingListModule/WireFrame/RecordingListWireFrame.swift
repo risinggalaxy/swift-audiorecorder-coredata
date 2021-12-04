@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
+class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
     
 //    static func shouldReturnView(navigationBuilder: (UIViewController) -> (UINavigationController)) -> VIEW {
 //        let view = RecordingListModule()
@@ -32,10 +32,10 @@ class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
 //    }
     
     static func shouldReturnView() -> VIEW {
-        let view = RecordingListModule()
+        let view = RecordingListModuleView()
         let interactor = RecordingListInteractor()
         let interactorOutput = RecordingListInteractorOutput()
-        let presenter = RecordingListPresenter()
+        let presenter = RecordingLisModulePresenter()
         let wireFrame = RecordingListWireFrameView()
         
         view.presenter = presenter
@@ -50,7 +50,7 @@ class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
         
     }
     
-    func shouldPresentRecordingView(module: VIEW){
+    func shouldPresentRecordingView(module: VIEW) {
         let recordingModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),
                                                              showNavigationBar: false, largeTitle: false)
         module.present(recordingModule, animated: true, completion: nil)

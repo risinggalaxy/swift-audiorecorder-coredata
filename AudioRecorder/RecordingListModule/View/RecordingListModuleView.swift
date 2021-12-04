@@ -7,10 +7,14 @@
 
 import UIKit
 
-class RecordingListModule: UIViewController, RecordingListModuleViewProtocol {
+class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol {
     
     var viewTitle: String! = "Recordings"
-    var presenter: RecordingListModulePresenterProtocol?
+    var presenter: RecordingListModulePresenterProtocol? {
+        didSet {
+            reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +23,17 @@ class RecordingListModule: UIViewController, RecordingListModuleViewProtocol {
         
     }
     
-    fileprivate func setupBarButtonItem() {
+    func setupBarButtonItem() {
         let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "circle.fill"), style: .plain, target: self, action: #selector(presentRecorderView))
         barButtonItem.tintColor = AppColors.recordButtonColor
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
     
-    @objc fileprivate func presentRecorderView() {
+    @objc func presentRecorderView() {
         presenter?.presentRecordingView(module: self)
+    }
+    
+    func reloadData() {
     }
 
 }
