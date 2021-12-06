@@ -32,6 +32,9 @@
 		7394453A275506D400075F30 /* AudioRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73944538275506D400075F30 /* AudioRecorder.xcdatamodeld */; };
 		7394453C275506D600075F30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7394453B275506D600075F30 /* Assets.xcassets */; };
 		7394453F275506D600075F30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7394453D275506D600075F30 /* LaunchScreen.storyboard */; };
+		73BB0832275E09E200805629 /* GetRecordingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB0831275E09E200805629 /* GetRecordingsTest.swift */; };
+		73BB0834275E0A7500805629 /* MockCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB0833275E0A7500805629 /* MockCoreDataService.swift */; };
+		73BB0837275E103100805629 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 73BB0836275E103100805629 /* sound.mp3 */; };
 		73C0FC19275A64EB00ED0846 /* MainControllerWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */; };
 		73C0FC1B275A651300ED0846 /* MainControllerWireFrameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */; };
 		73C0FC1E275A74CA00ED0846 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC1D275A74CA00ED0846 /* AppColors.swift */; };
@@ -47,9 +50,9 @@
 		73C0FC38275A848B00ED0846 /* PlayerModuleInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC37275A848B00ED0846 /* PlayerModuleInteractorOutput.swift */; };
 		73D39057275CD95A00D5C668 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D39056275CD95A00D5C668 /* CoreDataService.swift */; };
 		73D3905B275CDD5400D5C668 /* GetRecordings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D3905A275CDD5400D5C668 /* GetRecordings.swift */; };
-		73E4E25F275BA9B500A50E62 /* TestRecordingListModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4E25E275BA9B500A50E62 /* TestRecordingListModuleView.swift */; };
+		73E4E25F275BA9B500A50E62 /* RecordingListModuleViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4E25E275BA9B500A50E62 /* RecordingListModuleViewTest.swift */; };
 		73E4E263275BAB0A00A50E62 /* MockRecordingListModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4E262275BAB0A00A50E62 /* MockRecordingListModulePresenter.swift */; };
-		73E4E265275BBF0200A50E62 /* TestRecordingListModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4E264275BBF0200A50E62 /* TestRecordingListModulePresenter.swift */; };
+		73E4E265275BBF0200A50E62 /* RecordingListModulePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4E264275BBF0200A50E62 /* RecordingListModulePresenterTest.swift */; };
 		73E4E267275BC02B00A50E62 /* MockRecordingListModuleWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4E266275BC02B00A50E62 /* MockRecordingListModuleWireFrame.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		7394453B275506D600075F30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7394453E275506D600075F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73944540275506D600075F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73BB0831275E09E200805629 /* GetRecordingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetRecordingsTest.swift; path = AudioRecorderTests/GetRecordingsTest/GetRecordingsTest.swift; sourceTree = SOURCE_ROOT; };
+		73BB0833275E0A7500805629 /* MockCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataService.swift; sourceTree = "<group>"; };
+		73BB0836275E103100805629 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrame.swift; sourceTree = "<group>"; };
 		73C0FC1A275A651300ED0846 /* MainControllerWireFrameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrameProtocol.swift; sourceTree = "<group>"; };
 		73C0FC1D275A74CA00ED0846 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -107,9 +113,9 @@
 		73D39056275CD95A00D5C668 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		73D3905A275CDD5400D5C668 /* GetRecordings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordings.swift; sourceTree = "<group>"; };
 		73E4E255275BA65600A50E62 /* AudioRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73E4E25E275BA9B500A50E62 /* TestRecordingListModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecordingListModuleView.swift; sourceTree = "<group>"; };
+		73E4E25E275BA9B500A50E62 /* RecordingListModuleViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModuleViewTest.swift; sourceTree = "<group>"; };
 		73E4E262275BAB0A00A50E62 /* MockRecordingListModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecordingListModulePresenter.swift; sourceTree = "<group>"; };
-		73E4E264275BBF0200A50E62 /* TestRecordingListModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecordingListModulePresenter.swift; sourceTree = "<group>"; };
+		73E4E264275BBF0200A50E62 /* RecordingListModulePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModulePresenterTest.swift; sourceTree = "<group>"; };
 		73E4E266275BC02B00A50E62 /* MockRecordingListModuleWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecordingListModuleWireFrame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +233,7 @@
 		739445632755073E00075F30 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				73BB0836275E103100805629 /* sound.mp3 */,
 				7394452F275506D400075F30 /* AppDelegate.swift */,
 				73944531275506D400075F30 /* SceneDelegate.swift */,
 				7394453B275506D600075F30 /* Assets.xcassets */,
@@ -280,6 +287,23 @@
 				738A26C4275777BC00F89B9E /* RecordingListWireFrame.swift */,
 			);
 			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		73BB0830275E02F600805629 /* GetRecordingsTest */ = {
+			isa = PBXGroup;
+			children = (
+				73BB0831275E09E200805629 /* GetRecordingsTest.swift */,
+				73BB0835275E0A7800805629 /* Mock */,
+			);
+			path = GetRecordingsTest;
+			sourceTree = "<group>";
+		};
+		73BB0835275E0A7800805629 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				73BB0833275E0A7500805629 /* MockCoreDataService.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		73C0FC15275A64CC00ED0846 /* NavigationBuilder */ = {
@@ -360,19 +384,20 @@
 		73E4E256275BA65600A50E62 /* AudioRecorderTests */ = {
 			isa = PBXGroup;
 			children = (
-				73E4E260275BA9E100A50E62 /* TestRecorderLisModuleWireFrame */,
+				73BB0830275E02F600805629 /* GetRecordingsTest */,
+				73E4E260275BA9E100A50E62 /* RecorderLisModuleWireFrameTest */,
 			);
 			path = AudioRecorderTests;
 			sourceTree = "<group>";
 		};
-		73E4E260275BA9E100A50E62 /* TestRecorderLisModuleWireFrame */ = {
+		73E4E260275BA9E100A50E62 /* RecorderLisModuleWireFrameTest */ = {
 			isa = PBXGroup;
 			children = (
-				73E4E264275BBF0200A50E62 /* TestRecordingListModulePresenter.swift */,
-				73E4E25E275BA9B500A50E62 /* TestRecordingListModuleView.swift */,
+				73E4E264275BBF0200A50E62 /* RecordingListModulePresenterTest.swift */,
+				73E4E25E275BA9B500A50E62 /* RecordingListModuleViewTest.swift */,
 				73E4E261275BA9FE00A50E62 /* Mocked */,
 			);
-			path = TestRecorderLisModuleWireFrame;
+			path = RecorderLisModuleWireFrameTest;
 			sourceTree = "<group>";
 		};
 		73E4E261275BA9FE00A50E62 /* Mocked */ = {
@@ -467,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7394453F275506D600075F30 /* LaunchScreen.storyboard in Resources */,
+				73BB0837275E103100805629 /* sound.mp3 in Resources */,
 				7394453C275506D600075F30 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,10 +556,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73BB0832275E09E200805629 /* GetRecordingsTest.swift in Sources */,
 				73E4E267275BC02B00A50E62 /* MockRecordingListModuleWireFrame.swift in Sources */,
-				73E4E265275BBF0200A50E62 /* TestRecordingListModulePresenter.swift in Sources */,
+				73BB0834275E0A7500805629 /* MockCoreDataService.swift in Sources */,
+				73E4E265275BBF0200A50E62 /* RecordingListModulePresenterTest.swift in Sources */,
 				73E4E263275BAB0A00A50E62 /* MockRecordingListModulePresenter.swift in Sources */,
-				73E4E25F275BA9B500A50E62 /* TestRecordingListModuleView.swift in Sources */,
+				73E4E25F275BA9B500A50E62 /* RecordingListModuleViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

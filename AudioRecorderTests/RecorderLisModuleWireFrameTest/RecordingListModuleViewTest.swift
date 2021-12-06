@@ -8,7 +8,7 @@
 import XCTest
 @testable import AudioRecorder
 
-class TestRecordingListModuleView: XCTestCase {
+class RecordingListModuleViewTest: XCTestCase {
     
     var sut: RecordingListModuleView!
 
