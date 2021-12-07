@@ -39,19 +39,15 @@ extension GetRecordings {
         return recording
     }
     
-    public func loadRecordings() -> [Recording]? {
+    public func loadRecordings() throws -> [Recording]? {
         let fetchRequest: NSFetchRequest<Recording> = Recording.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Recording.creationDate), ascending: false)]
-        
         do {
             let results = try managedObjectContext.fetch(fetchRequest)
             return results
         } catch let error as NSError {
-            //TODO: Make testable
-            print("Error while loading data \(error)")
+            throw CoreDataErrorHandler.errorMessage("Error while loading data \(error)")
         }
-        
-        return nil
     }
     
     

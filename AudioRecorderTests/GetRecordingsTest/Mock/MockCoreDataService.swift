@@ -10,29 +10,17 @@ import CoreData
 @testable import AudioRecorder
 
 class MockCoreDataService: CoreDataService {
-    
     override init() {
         super.init()
-        
         let persistentStoreDescription = NSPersistentStoreDescription()
         persistentStoreDescription.type = NSInMemoryStoreType
-        
         let container = NSPersistentContainer(name: CoreDataService.modelName, managedObjectModel: CoreDataService.model)
-        
         container.persistentStoreDescriptions = [persistentStoreDescription]
-        
-        container.loadPersistentStores { persistentStoreDescription, error in
-            
+        container.loadPersistentStores { _ , error in
             if let error = error as Error?  {
-                //TODO: Make testable
                 print("An error occurred \(error)")
             }
-            
-            print("In memory store description: \(persistentStoreDescription)")
         }
-        
         storeContainer = container
-        
     }
-    
 }

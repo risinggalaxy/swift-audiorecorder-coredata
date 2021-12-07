@@ -17,3 +17,7 @@ struct AppColors{
     static let titleColor = UIColor(named: "titleColor")
     
 }
+
+enum ReuseableCellIdentifier: String {
+    case recordingCell = "recordingCell"
+}

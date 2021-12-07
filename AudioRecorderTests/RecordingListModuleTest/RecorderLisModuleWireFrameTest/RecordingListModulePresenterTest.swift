@@ -11,14 +11,26 @@ import XCTest
 class RecordingListModulePresenterTest: XCTestCase {
 
     var sut: RecordingLisModulePresenter!
+    var mockView: MockedRecordingListModuleView!
+    var mockInteractor: MockedRecordingListModuleInteractor!
+    var mockWireFrame: MockRecordingListModuleWireFrame!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = RecordingLisModulePresenter()
+        mockView = MockedRecordingListModuleView()
+        mockInteractor = MockedRecordingListModuleInteractor()
+        mockWireFrame = MockRecordingListModuleWireFrame()
+        sut.view = mockView
+        sut.interactor = mockInteractor
+        sut.wireFrame = mockWireFrame
     }
 
     override func tearDownWithError() throws {
         sut = nil
+        mockView = nil
+        mockInteractor = nil
+        mockWireFrame = nil
         try super.tearDownWithError()
     }
     
@@ -32,6 +44,12 @@ class RecordingListModulePresenterTest: XCTestCase {
         //Assert
         XCTAssertTrue(mockRecordingListModuleWireFrame.receivedAndWillPassView)
         XCTAssertEqual(mockRecordingListModuleWireFrame.timesFunctionWasCalled, 1)
+    }
+    
+    func testRecordingListModulePresenter_WhenIndexPathReceived_ShouldConfigureAndReturnCell() {
+        //Arrange
+        //ACT
+        //Assert
     }
 
 }

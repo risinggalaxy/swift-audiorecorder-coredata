@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RecordingListInteractorOutput: RecordingListInteractorOutputProtocol {
+class RecordingListInteractorOutput: RecordingListModuleInteractorOutputProtocol {
     
     var presenter: RecordingListModuleInteractorInputProtocol? {
         didSet {

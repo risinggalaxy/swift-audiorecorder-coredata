@@ -9,7 +9,7 @@ import Foundation
 
 class RecordingLisModulePresenter: RecordingListModulePresenterProtocol {
     
-    var view: RecordingListModuleView?
+    var view: RecordingListModuleViewProtocol?
     
     var interactor: RecordingListModuleInteractorInputProtocol?
     

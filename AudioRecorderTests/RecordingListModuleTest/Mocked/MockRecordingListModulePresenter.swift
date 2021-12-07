@@ -10,7 +10,7 @@ import Foundation
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
-    var view: RecordingListModuleView?
+    var view: RecordingListModuleViewProtocol?
     var interactor: RecordingListModuleInteractorInputProtocol?
     var wireFrame: RecordingListModuleWireFrameProtocol?
 

@@ -11,6 +11,7 @@ protocol RecordingListModuleViewProtocol: AnyObject {
     
     var viewTitle: String! { get set }
     var presenter: RecordingListModulePresenterProtocol? { get set }
+    var recordings: [Recording]! { get set }
     func reloadData()
     
 }

@@ -22,9 +22,8 @@ open class CoreDataService {
     public lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: CoreDataService.modelName, managedObjectModel: CoreDataService.model)
         container.loadPersistentStores { _, error in
-            if let error = error as NSError? {
-                //TODO: Make testable
-                print("Error occurred while creating container ")
+            if let error = error {
+                try! self.errorHandler(error)
             }
         }
         return container
@@ -34,6 +33,10 @@ open class CoreDataService {
         return self.storeContainer.viewContext
     }()
     
+    public func differentContext() -> NSManagedObjectContext {
+        let newContext = storeContainer.newBackgroundContext()
+        return newContext
+    }
     
     public func saveContext() {
         saveContext(mainContext)
@@ -45,26 +48,30 @@ open class CoreDataService {
             return
         }
         
-        context.perform {
+        context.perform { [weak self] in
+            guard let strongSelf = self else { return }
             do {
                 try context.save()
-            } catch let err as NSError {
-                //TODO: Make testable
-                print("Error \(err) occurred while Saving")
+            } catch let error {
+                try! strongSelf.errorHandler(error)
             }
         }
     }
     
     public func saveDifferentContext( _ context: NSManagedObjectContext ) {
-        context.perform {
+        context.perform { [weak self] in
+            guard let strongSelf = self else { return }
             do {
                 try context.save()
-            } catch let err as NSError {
-                //TODO: Make testable
-                print("Error \(err) occurred while saving different context ")
+            } catch let error {
+                try! strongSelf.errorHandler(error)
             }
-            self.saveContext(self.mainContext)
+            strongSelf.saveContext(strongSelf.mainContext)
         }
     }
-
+    
+    @discardableResult
+    public func errorHandler( _ error: Error ) throws -> Error {
+        throw error
+    }
 }

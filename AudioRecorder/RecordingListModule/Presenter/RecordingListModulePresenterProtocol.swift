@@ -9,7 +9,7 @@ import Foundation
 
 protocol RecordingListModulePresenterProtocol {
     
-    var view: RecordingListModuleView? { get set }
+    var view: RecordingListModuleViewProtocol? { get set }
     var interactor: RecordingListModuleInteractorInputProtocol? { get set }
     var wireFrame: RecordingListModuleWireFrameProtocol? { get set }
     

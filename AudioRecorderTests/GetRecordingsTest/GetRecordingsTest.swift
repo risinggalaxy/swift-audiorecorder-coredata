@@ -54,7 +54,7 @@ class GetRecordingsTest: XCTestCase {
     func testGetRecording_WhenLaunched_ShouldLoadRecordings() {
         //Arrange
         //Act
-        let recordings = sut.loadRecordings()
+        let recordings = try! sut.loadRecordings()
         //Assert
         XCTAssertNotNil(recordings, "Recording must not be nil")
         XCTAssertTrue(recordings?.count == 1)
@@ -66,7 +66,7 @@ class GetRecordingsTest: XCTestCase {
     func testGetRecordings_WhenTitleModified_UpdatesMustPersist() {
         //Arrange
         //Act
-        guard let updatingRecording = sut.loadRecordings()?.first else { return }
+        guard let updatingRecording = try!  sut.loadRecordings()?.first else { return }
         updatingRecording.title = "My New Update"
         sut.update(updatingRecording)
         //Assert
@@ -76,13 +76,35 @@ class GetRecordingsTest: XCTestCase {
     func testGetRecordings_WhenRequested_RecordingShouldBeDeleted() {
         //Arrange
         //Act
-        var recordings = sut.loadRecordings()
+        var recordings = try! sut.loadRecordings()
         //Assert
         XCTAssertTrue(recordings?.count == 1)
         XCTAssertTrue(recordings?.first?.id == recording.id)
         sut.delete(recording)
-        recordings = sut.loadRecordings()
+        recordings = try! sut.loadRecordings()
         XCTAssertTrue(recordings?.isEmpty == true)
     }
     
+    func testGetRecordings_WhenSomeThingIsWrongWithManagedObject_ShouldReturnAnError() {
+        let error = CoreDataErrorHandler.errorMessage("An Error occurred")
+        XCTAssertThrowsError(try coreDataService.errorHandler(error))
+    }
+    
+    func testGetRecordings_WhenSavingAsync_ShouldPass() {
+        //Arrange
+        let differentContext = coreDataService.differentContext()
+        sut = GetRecordings(managedObjectContext: differentContext, coreDataService: coreDataService)
+        //Act
+        expectation(forNotification: .NSManagedObjectContextDidSave, object: coreDataService.mainContext) { _ in
+            return true
+        }
+        differentContext.perform {
+            let recording = self.sut.addNewRecording(data: Data(), title: "New Recording")
+            XCTAssertNotNil(recording, "Recording must not be nil")
+        }
+        //Assert
+        waitForExpectations(timeout: 2.0) { error in
+            XCTAssertNil(error, "New recording was successfully persisted")
+        }
+    }
 }
