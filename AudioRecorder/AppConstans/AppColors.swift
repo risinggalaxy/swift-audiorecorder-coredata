@@ -15,6 +15,8 @@ struct AppColors{
     static let unEvenCellColor = UIColor(named: "unEvenCell")
     static let recordButtonColor = UIColor(named: "recordButton")
     static let titleColor = UIColor(named: "titleColor")
+    static let backgroundColor = UIColor(named: "backgroundColor")
+    static let recordButtonTitle = UIColor(named: "recordButtonTitle")
     
 }
 

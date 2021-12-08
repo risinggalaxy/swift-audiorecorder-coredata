@@ -21,3 +21,11 @@ enum CoreDataErrorHandler: Error, Equatable {
         }
     }
 }
+
+
+enum AudioRecorderObjectErrorHandler: Error, Equatable {
+    case failedToInitialize
+    case failedToStartRecording
+    case failToStopRecording
+    case errorMessage( _ message: String )
+}

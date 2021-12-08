@@ -11,7 +11,6 @@ class RecordingListInteractorOutput: RecordingListModuleInteractorOutputProtocol
     
     var presenter: RecordingListModuleInteractorInputProtocol? {
         didSet {
-            print("RecordingListInteractorOutputProtocol was set")
         }
     }
     

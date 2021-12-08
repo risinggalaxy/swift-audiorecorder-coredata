@@ -52,7 +52,8 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
     
     func shouldPresentRecordingView(module: VIEW) {
         let recordingModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),
-                                                             showNavigationBar: false, largeTitle: false)
+            showNavigationBar: false, largeTitle: false)
+        
         module.present(recordingModule, animated: true, completion: nil)
     }
     

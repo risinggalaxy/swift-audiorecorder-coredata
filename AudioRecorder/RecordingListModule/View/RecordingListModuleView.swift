@@ -22,18 +22,42 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
         tableView.register(RecordingCell.self, forCellReuseIdentifier: ReuseableCellIdentifier.recordingCell.rawValue)
         return tableView
     }()
+    
+    let addFirstRecordingButton: UIButton = {
+        let frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 100))
+        let button = UIButton(frame: frame)
+        button.layer.cornerRadius = frame.height / 2
+        button.backgroundColor = AppColors.recordButtonColor
+        button.addTarget(self, action: #selector(presentRecorderView), for: .touchUpInside)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 50, weight: .medium)
+        let image = UIImage(systemName: "plus")?.withConfiguration(configuration)
+        button.tintColor = AppColors.recordButtonTitle
+        button.setImage(image, for: .normal)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarButtonItem()
         setupTableView()
+        setupAddFirstRecordingButton()
+        view.backgroundColor = AppColors.backgroundColor
     }
     
     override func viewWillLayoutSubviews() {
         tableView.frame = view.frame
     }
     
-    func setupBarButtonItem() {
+    fileprivate func setupAddFirstRecordingButton() {
+        view.addSubview(addFirstRecordingButton)
+        addFirstRecordingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        addFirstRecordingButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        addFirstRecordingButton.widthAnchor.constraint(equalToConstant: addFirstRecordingButton.frame.width).isActive = true
+        addFirstRecordingButton.heightAnchor.constraint(equalToConstant: addFirstRecordingButton.frame.height).isActive = true
+        addFirstRecordingButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    fileprivate func setupBarButtonItem() {
         let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "circle.fill"), style: .plain, target: self, action: #selector(presentRecorderView))
         barButtonItem.tintColor = AppColors.recordButtonColor
         self.navigationItem.rightBarButtonItem = barButtonItem
@@ -46,8 +70,8 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     func reloadData() {
         tableView.reloadData()
     }
+    
 }
-
 
 extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     
@@ -56,7 +80,9 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.isHidden = recordings.count > 0 ? false : true
+        let tableViewIsEmpty = recordings.count > 0 ? false : true
+        tableView.isHidden = tableViewIsEmpty
+        addFirstRecordingButton.isHidden = !tableViewIsEmpty
         return recordings.count
     }
     
@@ -85,5 +111,6 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         view.addSubview(tableView)
     }
+    
     
 }
