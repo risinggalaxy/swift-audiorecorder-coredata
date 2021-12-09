@@ -14,7 +14,13 @@ class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
     var presenter: RecordingListModulePresenterProtocol?
     var recordings: [Recording]!
     
-    func reloadData() {
+    var didReloadData: Bool = false
+    var timesReloadDataWasCalled: Int = 0
+    
+    func reloadData( with recordings: [Recording] ) {
+        didReloadData = true
+        timesReloadDataWasCalled += 1
+        self.recordings = recordings
     }
     
     

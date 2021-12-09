@@ -9,9 +9,9 @@ import Foundation
 
 class RecordingListInteractorOutput: RecordingListModuleInteractorOutputProtocol {
     
-    var presenter: RecordingListModuleInteractorInputProtocol? {
-        didSet {
-        }
-    }
+    var presenter: RecordingListModuleInteractorInputProtocol?
     
+    func updateViewAtLaunch() {
+        _ = presenter?.shouldProvideAllPersistedDataAtAppLaunch()
+    }
 }

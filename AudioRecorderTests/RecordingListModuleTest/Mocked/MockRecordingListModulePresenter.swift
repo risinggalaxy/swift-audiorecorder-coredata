@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
@@ -17,9 +18,18 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     var didPresentRecorderView: Bool = false
     var timesRecorderViewWasPresented: Int = 0
     
+    var didPushData: Bool = false
+    var timesDataWasPushed: Int = 0
+    var persistedData: [Recording]?
+    
     func presentRecordingView(module: VIEW) {
         didPresentRecorderView = true
         timesRecorderViewWasPresented += 1
     }
     
+    func pushPersistedDataToView( _ persistedData: [Recording]? ) {
+        didPushData = true
+        timesDataWasPushed += 1
+        self.persistedData = persistedData
+    }
 }

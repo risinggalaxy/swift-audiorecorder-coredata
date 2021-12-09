@@ -10,6 +10,6 @@ import Foundation
 protocol RecordingListModuleInteractorOutputProtocol {
     
     var presenter: RecordingListModuleInteractorInputProtocol? { get set }
-    
+    func updateViewAtLaunch()
     
 }

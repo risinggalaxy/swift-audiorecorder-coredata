@@ -11,11 +11,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     
     var viewTitle: String! = "Recordings"
     var recordings: [Recording]! = []
-    var presenter: RecordingListModulePresenterProtocol? {
-        didSet {
-            reloadData()
-        }
-    }
+    var presenter: RecordingListModulePresenterProtocol?
     
     var tableView: UITableView = {
         let tableView = UITableView()
@@ -67,7 +63,8 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
         presenter?.presentRecordingView(module: self)
     }
     
-    func reloadData() {
+    func reloadData( with recordings: [Recording] ) {
+        self.recordings = recordings
         tableView.reloadData()
     }
     
@@ -92,7 +89,7 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReuseableCellIdentifier.recordingCell.rawValue, for: indexPath) as! RecordingCell
         let recording = recordings[indexPath.row]
-        cell.configureCell(recording)
+        cell.configureCell(recording, indexPath)
         return cell
     }
     
@@ -111,6 +108,5 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         view.addSubview(tableView)
     }
-    
     
 }

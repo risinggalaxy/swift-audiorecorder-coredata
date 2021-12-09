@@ -12,14 +12,14 @@ class RecordingListModulePresenterTest: XCTestCase {
 
     var sut: RecordingLisModulePresenter!
     var mockView: MockedRecordingListModuleView!
-    var mockInteractor: MockedRecordingListModuleInteractor!
+    var mockInteractor: MockRecordingListModuleInteractor!
     var mockWireFrame: MockRecordingListModuleWireFrame!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = RecordingLisModulePresenter()
         mockView = MockedRecordingListModuleView()
-        mockInteractor = MockedRecordingListModuleInteractor()
+        mockInteractor = MockRecordingListModuleInteractor()
         mockWireFrame = MockRecordingListModuleWireFrame()
         sut.view = mockView
         sut.interactor = mockInteractor
@@ -45,6 +45,17 @@ class RecordingListModulePresenterTest: XCTestCase {
         XCTAssertTrue(mockRecordingListModuleWireFrame.receivedAndWillPassView)
         XCTAssertEqual(mockRecordingListModuleWireFrame.timesFunctionWasCalled, 1)
     }
+    
+    func testRecordingListModulePresenter_WhenAppLaunchProvidesData_ShouldBeCalledOnceAndTrue() {
+        let recordings = try! mockInteractor.getRecording.loadRecordings()
+        sut.pushPersistedDataToView(recordings)
+        let didPushDataToView = mockView.didReloadData
+        let timesReloadDataWasCalled = mockView.timesReloadDataWasCalled
+        XCTAssertTrue(didPushDataToView)
+        XCTAssertEqual(timesReloadDataWasCalled, 1)
+        
+    }
+    
     
     func testRecordingListModulePresenter_WhenIndexPathReceived_ShouldConfigureAndReturnCell() {
         //Arrange

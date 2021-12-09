@@ -8,9 +8,9 @@
 import Foundation
 import CoreData
 
-open class CoreDataService {
+open class CoreDataService: CoreDataServiceProtocol {
     
-    public static let modelName: String = "AudioRecorder"
+    public static var modelName: String = "AudioRecorder"
     
     public static let model: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!

@@ -14,18 +14,21 @@ class RecorderModulePresenter: RecorderModulePresenterProtocol {
     var interactor: RecorderModuleInputInteractorProtocol?
     var wireFrame: RecorderModuleWireFrameProtocol?
     
-    private var audioRecorderObject: AudioRecorderObject!
-    private let recordingSession = AVAudioSession.sharedInstance()
+    var audioRecorderObject: AudioRecorderObject!
+    var recordingSession: AVAudioSession!
+    
+    init() {
+        recordingSession = AVAudioSession.sharedInstance()
+        audioRecorderObject = AudioRecorderObject(recordingSession: recordingSession)
+    }
     
     func startRecording() {
-        audioRecorderObject = AudioRecorderObject(recordingSession: recordingSession)
         audioRecorderObject.shouldManageRecord(.started, recordingSession)
     }
     
     func stopRecording() {
-        //TODO: Stop Recording + Talk to interactor save recording
         if let data = audioRecorderObject.shouldManageRecord(.stop, recordingSession) {
-            print("DATA: \(data)")
+            interactor?.persistRecording(data)
         }
     }
 }

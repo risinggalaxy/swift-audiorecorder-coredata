@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
     
@@ -32,12 +33,14 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
 //    }
     
     static func shouldReturnView() -> VIEW {
+        
+        let coreDataService = CoreDataService()
+        let getRecordings = GetRecordings(managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
         let view = RecordingListModuleView()
-        let interactor = RecordingListInteractor()
+        let interactor = RecordingListModuleInteractor(getRecordings)
         let interactorOutput = RecordingListInteractorOutput()
         let presenter = RecordingLisModulePresenter()
         let wireFrame = RecordingListWireFrameView()
-        
         view.presenter = presenter
         interactor.presenter = presenter
         interactorOutput.presenter = interactor
@@ -45,7 +48,9 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
         presenter.interactor = interactor
         presenter.wireFrame = wireFrame
         view.title = view.viewTitle
-    
+        
+        interactorOutput.updateViewAtLaunch()
+        
         return view
         
     }

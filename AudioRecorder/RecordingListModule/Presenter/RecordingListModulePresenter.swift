@@ -8,7 +8,7 @@
 import Foundation
 
 class RecordingLisModulePresenter: RecordingListModulePresenterProtocol {
-    
+
     var view: RecordingListModuleViewProtocol?
     
     var interactor: RecordingListModuleInteractorInputProtocol?
@@ -17,6 +17,14 @@ class RecordingLisModulePresenter: RecordingListModulePresenterProtocol {
     
     func presentRecordingView(module: VIEW) {
         wireFrame?.shouldPresentRecordingView(module: module)
+    }
+    
+    func pushPersistedDataToView( _ persistedData: [Recording]?) {
+        if let recordings = persistedData {
+            view?.reloadData(with: recordings)
+        } else {
+            //TODO: Notify view something went wrong
+        }
     }
     
 }

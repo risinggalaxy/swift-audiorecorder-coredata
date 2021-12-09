@@ -28,8 +28,9 @@ class RecordingCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    public func configureCell( _ recording: Recording ) {
+    public func configureCell( _ recording: Recording, _ indexPath: IndexPath ) {
         recordingTitleLabel.text = recording.title
+        contentView.backgroundColor = (indexPath.row % 2 ) == .zero ? AppColors.evenCellColor : AppColors.unEvenCellColor
     }
     
     private func setupRecordingTitleLabelConstraints() {

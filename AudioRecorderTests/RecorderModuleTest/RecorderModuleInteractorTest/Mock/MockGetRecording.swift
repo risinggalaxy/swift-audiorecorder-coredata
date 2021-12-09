@@ -1,35 +1,26 @@
 //
-//  GetRecordings.swift
-//  AudioRecorder
+//  MockGetRecording.swift
+//  AudioRecorderTests
 //
-//  Created by YASSER FARAHI on 05/12/2021.
+//  Created by YASSER FARAHI on 08/12/2021.
 //
 
 import Foundation
 import CoreData
+@testable import AudioRecorder
 
-/*
- When we declare a class as being final, no other class can inherit from it.
- Meaning other classes can not override the final methods in order to change its behavior – they must to use our class the way it was written.
- */
-
-public final class GetRecordings: GetRecordingsProtocol {
+class MockGetRecordings: GetRecordingsProtocol {
     
     var managedObjectContext: NSManagedObjectContext!
+    
     var coreDataContainer: CoreDataServiceProtocol!
     
     public required init(managedObjectContext: NSManagedObjectContext, coreDataService: CoreDataService) {
         self.managedObjectContext = managedObjectContext
         self.coreDataContainer = coreDataService
     }
-
-}
-
-
-extension GetRecordings {
     
-    @discardableResult
-    public func addNewRecording(creationDate: Date = Date(), data: Data, title: String) -> Recording {
+    func addNewRecording(creationDate: Date, data: Data, title: String) -> Recording {
         let recording = Recording(context: managedObjectContext)
         recording.id = UUID()
         recording.creationDate = creationDate
@@ -39,7 +30,8 @@ extension GetRecordings {
         return recording
     }
     
-    public func loadRecordings() throws -> [Recording]? {
+    func loadRecordings() throws -> [Recording]? {
+        
         let fetchRequest: NSFetchRequest<Recording> = Recording.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Recording.creationDate), ascending: false)]
         do {
@@ -50,17 +42,13 @@ extension GetRecordings {
         }
     }
     
-    
-    @discardableResult
-    public func update( _ recording: Recording ) -> Recording {
-        coreDataContainer.saveContext(managedObjectContext)
+    fileprivate func testRecording() -> Recording {
+        let recording = Recording(context: managedObjectContext)
         return recording
     }
     
-    public func delete( _ recording: Recording) {
-        managedObjectContext.delete(recording)
-        coreDataContainer.saveContext(managedObjectContext)
+    func update(_ recording: Recording) -> Recording {
+        testRecording()
     }
 
-    
 }

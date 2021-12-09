@@ -11,7 +11,7 @@ import XCTest
 class GetRecordingsTest: XCTestCase {
     
     var sut: GetRecordings!
-    var coreDataService: CoreDataService!
+    var coreDataService: MockCoreDataService!
     var creationDate: Date!
     var testSoundFileUrl: URL!
     var recordingData: Data!

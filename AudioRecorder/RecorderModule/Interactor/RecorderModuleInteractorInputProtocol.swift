@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import CoreData
 
 protocol RecorderModuleInputInteractorProtocol {
     var presenter: RecorderModulePresenterProtocol? { get set }
+    var getRecording: GetRecordingsProtocol! { get set }
+    func persistRecording( _ data: Data )
 }
