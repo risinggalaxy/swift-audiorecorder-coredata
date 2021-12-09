@@ -9,7 +9,8 @@ import Foundation
 @testable import AudioRecorder
 
 class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
-    
+
+   
     var viewTitle: String!
     var presenter: RecordingListModulePresenterProtocol?
     var recordings: [Recording]!
@@ -23,6 +24,9 @@ class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
         self.recordings = recordings
     }
     
+    func presentPlayerViewController(with indexPath: IndexPath) {
+        presenter?.selectedIndexPath = indexPath
+    }
     
     
 }

@@ -10,28 +10,29 @@ import XCTest
 
 class RecordingListModulePresenterTest: XCTestCase {
 
-    var sut: RecordingLisModulePresenter!
+    var sut: RecordingListModulePresenter!
     var mockView: MockedRecordingListModuleView!
     var mockInteractor: MockRecordingListModuleInteractor!
     var mockWireFrame: MockRecordingListModuleWireFrame!
     
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-        sut = RecordingLisModulePresenter()
+    override func setUp() {
+        super.setUp()
+        sut = RecordingListModulePresenter()
         mockView = MockedRecordingListModuleView()
         mockInteractor = MockRecordingListModuleInteractor()
         mockWireFrame = MockRecordingListModuleWireFrame()
         sut.view = mockView
         sut.interactor = mockInteractor
         sut.wireFrame = mockWireFrame
+        mockView.presenter = sut
     }
-
-    override func tearDownWithError() throws {
+    
+    override func tearDown() {
         sut = nil
         mockView = nil
         mockInteractor = nil
         mockWireFrame = nil
-        try super.tearDownWithError()
+        super.tearDown()
     }
     
     func testRecordingListModulePresenter_WhenBarButtonItemTappedOnRecordingListModuleView_ShouldPresentRecorderView() {
@@ -40,7 +41,7 @@ class RecordingListModulePresenterTest: XCTestCase {
         let view = VIEW()
         //Act
         sut.wireFrame = mockRecordingListModuleWireFrame
-        sut.presentRecordingView(module: view)
+        sut.presentNewView(newModule:.recorder, module: view)
         //Assert
         XCTAssertTrue(mockRecordingListModuleWireFrame.receivedAndWillPassView)
         XCTAssertEqual(mockRecordingListModuleWireFrame.timesFunctionWasCalled, 1)
@@ -57,10 +58,10 @@ class RecordingListModulePresenterTest: XCTestCase {
     }
     
     
-    func testRecordingListModulePresenter_WhenIndexPathReceived_ShouldConfigureAndReturnCell() {
-        //Arrange
-        //ACT
-        //Assert
+    func testRecordingListModulePresenter_WhenIndexPathReceived_ShouldGetARecodingFromInteractor() {
+        let recording = mockInteractor.getRecording.addNewRecording(creationDate: Date(), data: AudioTestData.data, title: "New Recording")
+        sut.sendReceivedRecordingToWireFrame(recording)
+        XCTAssertNotNil(recording)
     }
-
+    
 }

@@ -25,4 +25,13 @@ class RecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol 
         } catch {
         }
     }
+    
+    func sendSelectedRecordingToPresenter(_ indexPath: IndexPath) -> Recording? {
+        if let recordings = try! getRecording.loadRecordings() {
+            let recording = recordings[indexPath.row]
+            return recording
+        } else {
+            return nil
+        }
+    }
 }

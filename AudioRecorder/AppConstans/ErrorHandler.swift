@@ -22,10 +22,17 @@ enum CoreDataErrorHandler: Error, Equatable {
     }
 }
 
-
 enum AudioRecorderObjectErrorHandler: Error, Equatable {
     case failedToInitialize
     case failedToStartRecording
     case failToStopRecording
     case errorMessage( _ message: String )
+}
+
+struct AudioTestData {
+    static let data: Data = {
+        let fileURL = Bundle.main.url(forResource: "sound", withExtension: "mp3")!
+        let data = try! Data(contentsOf: fileURL)
+        return data
+    }()
 }

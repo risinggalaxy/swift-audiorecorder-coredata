@@ -10,7 +10,7 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol {
-    
+
     var getRecording: GetRecordingsProtocol!
     var presenter: RecordingListModulePresenterProtocol?
     
@@ -25,6 +25,15 @@ class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProto
     func shouldProvideAllPersistedDataAtAppLaunch(){
         didProvideOnAppLaunch = true
         timesUpdateWasCalledAtLaunch += 1
+    }
+    
+    func sendSelectedRecordingToPresenter(_ indexPath: IndexPath) -> Recording? {
+        if let recordings = try! getRecording.loadRecordings() {
+            let recording = recordings[indexPath.row]
+            return recording
+        } else {
+            return nil
+        }
     }
     
 }

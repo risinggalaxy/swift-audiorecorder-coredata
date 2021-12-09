@@ -13,7 +13,7 @@ class MockRecordingListModuleWireFrame: RecordingListModuleWireFrameProtocol {
     var receivedAndWillPassView: Bool = false
     var timesFunctionWasCalled: Int = 0
     
-    func shouldPresentRecordingView(module: VIEW) {
+    func shouldPresentRecordingView(newModule:PresentingNewModule, module: VIEW) {
         receivedAndWillPassView = true
         timesFunctionWasCalled += 1
     }

@@ -16,7 +16,7 @@ protocol RecordingListModuleWireFrameProtocol {
 //    func shouldPresentRecordingView(module: VIEW)
     
     static func shouldReturnView() -> VIEW
-    func shouldPresentRecordingView(module: VIEW)
+    func shouldPresentRecordingView(newModule:PresentingNewModule, module: VIEW)
     
 }
 

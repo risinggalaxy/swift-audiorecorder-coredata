@@ -60,7 +60,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     }
     
     @objc func presentRecorderView() {
-        presenter?.presentRecordingView(module: self)
+        presenter?.presentNewView(newModule: .recorder, module: self)
     }
     
     func reloadData( with recordings: [Recording] ) {
@@ -84,6 +84,7 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentPlayerViewController(with: indexPath)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,10 +104,19 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(80)
+    }
+    
     fileprivate func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
+    }
+    
+    func presentPlayerViewController( with indexPath: IndexPath) {
+        presenter?.selectedIndexPath = indexPath
+        presenter?.presentNewView(newModule: .player, module: self)
     }
     
 }

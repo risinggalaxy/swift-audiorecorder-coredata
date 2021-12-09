@@ -14,7 +14,6 @@ class GetRecordingsTest: XCTestCase {
     var coreDataService: MockCoreDataService!
     var creationDate: Date!
     var testSoundFileUrl: URL!
-    var recordingData: Data!
     var recording: Recording!
     
     override func setUp() {
@@ -22,15 +21,12 @@ class GetRecordingsTest: XCTestCase {
         coreDataService = MockCoreDataService()
         sut = GetRecordings(managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
         creationDate = Date()
-        testSoundFileUrl = Bundle.main.url(forResource: "sound", withExtension: "mp3")!
-        recordingData = try! Data(contentsOf: testSoundFileUrl)
-        recording = sut.addNewRecording(creationDate: creationDate, data: recordingData, title: "Test Recording")
+        recording = sut.addNewRecording(creationDate: creationDate, data: AudioTestData.data, title: "Test Recording")
     }
     
     override func tearDown() {
         creationDate = nil
         testSoundFileUrl = nil
-        recordingData = nil
         recording = nil
         coreDataService = nil
         sut = nil
@@ -48,7 +44,7 @@ class GetRecordingsTest: XCTestCase {
         XCTAssertNotNil(recording.title, "Recording title should not be nil")
         XCTAssertTrue(recording.title == "Test Recording")
         XCTAssertTrue(recording.creationDate == creationDate)
-        XCTAssertTrue(recording.data == recordingData)
+        XCTAssertTrue(recording.data == AudioTestData.data)
     }
     
     func testGetRecording_WhenLaunched_ShouldLoadRecordings() {

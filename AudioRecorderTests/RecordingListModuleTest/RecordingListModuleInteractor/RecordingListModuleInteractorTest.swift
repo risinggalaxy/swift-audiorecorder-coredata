@@ -45,4 +45,10 @@ class RecordingListModuleInteractorTest: XCTestCase {
         XCTAssertNotNil(persistedData)
     }
     
+    func testRecorderModuleInteractor_WhenReceivedIndexPathFromPresenter_ShouldSelectTheCorecctRecording() {
+        _ = getRecording.addNewRecording(creationDate: Date(), data: AudioTestData.data, title: "New Recording")
+        let indexPath = IndexPath(item: 0, section: 0)
+        let selectedRecording = sut.sendSelectedRecordingToPresenter(indexPath)
+        XCTAssertNotNil(selectedRecording)
+    }
 }

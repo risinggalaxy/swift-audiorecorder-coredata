@@ -13,5 +13,6 @@ protocol RecordingListModuleInteractorInputProtocol {
     var presenter: RecordingListModulePresenterProtocol? { get set }
     var getRecording: GetRecordingsProtocol! { get set }
     func shouldProvideAllPersistedDataAtAppLaunch()
+    func sendSelectedRecordingToPresenter( _ indexPath: IndexPath ) -> Recording?
     
 }

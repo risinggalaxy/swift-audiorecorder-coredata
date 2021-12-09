@@ -18,7 +18,6 @@ class RecorderModuleInteractor: RecorderModuleInputInteractorProtocol {
     }
     
     func persistRecording(_ data: Data) {
-        print("Saving Data")
         _ = getRecording.addNewRecording(creationDate: Date(), data: data, title: "New Recording")
     }
     

@@ -39,7 +39,7 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
         let view = RecordingListModuleView()
         let interactor = RecordingListModuleInteractor(getRecordings)
         let interactorOutput = RecordingListInteractorOutput()
-        let presenter = RecordingLisModulePresenter()
+        let presenter = RecordingListModulePresenter()
         let wireFrame = RecordingListWireFrameView()
         view.presenter = presenter
         interactor.presenter = presenter
@@ -55,11 +55,20 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
         
     }
     
-    func shouldPresentRecordingView(module: VIEW) {
-        let recordingModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),
-            showNavigationBar: false, largeTitle: false)
+    func shouldPresentRecordingView(newModule:PresentingNewModule, module: VIEW) {
+        
+        
+        let recordingModule = newModule == .recorder ? NavigationGenerator.buildNavigation(rootView:
+        RecorderModuleWireFrame.shouldReturnView(),
+        showNavigationBar: false, largeTitle: false)
+        : NavigationGenerator.buildNavigation(rootView: PlayerModuleWireFrame.shouldReturnView(),
+        showNavigationBar: false, largeTitle: false)
         
         module.present(recordingModule, animated: true, completion: nil)
     }
-    
+
+}
+
+enum PresentingNewModule {
+    case recorder, player
 }

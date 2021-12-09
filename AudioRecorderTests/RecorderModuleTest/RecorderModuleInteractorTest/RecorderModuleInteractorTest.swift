@@ -31,15 +31,15 @@ class RecorderModuleInteractorTest: XCTestCase {
     }
     
     func testRecorderModuleInteractor_WhenRecordingEnded_ShouldPersistToCoreDataContainer() {
-        let dataURL = Bundle.main.url(forResource: "sound", withExtension: "mp3")!
-        let data = try! Data(contentsOf: dataURL)
-        sut.persistRecording(data)
+        sut.persistRecording(AudioTestData.data)
         let dataWasPersisted = try! getRecording.loadRecordings()?.first
         XCTAssertNotNil(dataWasPersisted)
         XCTAssertNotNil(dataWasPersisted?.title)
         XCTAssertNotNil(dataWasPersisted?.id)
         XCTAssertNotNil(dataWasPersisted?.creationDate)
-        XCTAssertEqual(dataWasPersisted?.data, data)
+        XCTAssertEqual(dataWasPersisted?.data, AudioTestData.data)
     }
+    
+    
     
 }

@@ -11,7 +11,6 @@ import CoreData
 
 class MockRecorderModuleInteractor: RecorderModuleInputInteractorProtocol {
     
-    
     var coreDataService: CoreDataServiceProtocol!
     var getRecording: GetRecordingsProtocol!
     var presenter: RecorderModulePresenterProtocol?
@@ -24,6 +23,5 @@ class MockRecorderModuleInteractor: RecorderModuleInputInteractorProtocol {
         didPersistData = true
         numberOfFunctionCalls += 1
     }
-    
-    
+
 }

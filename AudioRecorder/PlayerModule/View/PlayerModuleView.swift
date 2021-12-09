@@ -11,4 +11,9 @@ class PlayerModuleView: UIViewController ,PlayerModuleViewProtocol {
  
     var viewTitle: String! = "Audio Player"
     var presenter: PlayerModulePresenterProtocol?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = AppColors.backgroundColor
+    }
 }

@@ -11,9 +11,9 @@ import CoreData
 class RecordingCell: UITableViewCell {
 
     var recordingTitleLabel: UILabel = {
-        let frame = CGRect(origin: .zero, size: CGSize(width: 300, height: 50))
+        let frame = CGRect(origin: .zero, size: CGSize(width: .zero, height: 50))
         let label = UILabel(frame: frame)
-        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         label.textColor = AppColors.titleColor
         return label
     }()
@@ -34,11 +34,11 @@ class RecordingCell: UITableViewCell {
     }
     
     private func setupRecordingTitleLabelConstraints() {
-        recordingTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
-        recordingTitleLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
-        recordingTitleLabel.widthAnchor.constraint(equalToConstant: recordingTitleLabel.frame.width).isActive = true
-        recordingTitleLabel.heightAnchor.constraint(equalToConstant: recordingTitleLabel.frame.height).isActive = true
+        recordingTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15).isActive = true
+        recordingTitleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 15).isActive = true
+        recordingTitleLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         recordingTitleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
+    
     
 }

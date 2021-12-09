@@ -7,16 +7,28 @@
 
 import Foundation
 
-class RecordingLisModulePresenter: RecordingListModulePresenterProtocol {
-
+class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
+    
     var view: RecordingListModuleViewProtocol?
     
     var interactor: RecordingListModuleInteractorInputProtocol?
     
     var wireFrame: RecordingListModuleWireFrameProtocol?
     
-    func presentRecordingView(module: VIEW) {
-        wireFrame?.shouldPresentRecordingView(module: module)
+    var selectedIndexPath: IndexPath? {
+        didSet {
+            if let indexPath = selectedIndexPath {
+                if let recording = interactor?.sendSelectedRecordingToPresenter(indexPath) {
+                    sendReceivedRecordingToWireFrame(recording)
+                }
+            }
+        }
+    }
+    
+    weak var delegate: AudioRecorderDelegate?
+    
+    func presentNewView(newModule:PresentingNewModule, module: VIEW) {
+        wireFrame?.shouldPresentRecordingView(newModule: newModule, module: module)
     }
     
     func pushPersistedDataToView( _ persistedData: [Recording]?) {
@@ -25,6 +37,10 @@ class RecordingLisModulePresenter: RecordingListModulePresenterProtocol {
         } else {
             //TODO: Notify view something went wrong
         }
+    }
+    
+    func sendReceivedRecordingToWireFrame( _ recording: Recording) {
+        delegate?.sendDataAndPlay(recording)
     }
     
 }
