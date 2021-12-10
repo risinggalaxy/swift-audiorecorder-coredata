@@ -9,6 +9,12 @@ import UIKit
 
 class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol {
     
+    var displayErrorMessage: String? {
+        didSet {
+            print(displayErrorMessage)
+        }
+    }
+    
     var viewTitle: String! = "Recordings"
     var recordings: [Recording]! = []
     var presenter: RecordingListModulePresenterProtocol?
@@ -60,7 +66,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     }
     
     @objc func presentRecorderView() {
-        presenter?.presentNewView(newModule: .recorder, module: self)
+        presenter?.presentRecorderModule(on: self)
     }
     
     func reloadData( with recordings: [Recording] ) {
@@ -115,8 +121,8 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func presentPlayerViewController( with indexPath: IndexPath) {
+        presenter?.hostView = self
         presenter?.selectedIndexPath = indexPath
-        presenter?.presentNewView(newModule: .player, module: self)
     }
     
 }

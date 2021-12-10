@@ -10,6 +10,7 @@ import CoreData
 
 protocol RecordingListModuleViewProtocol: AnyObject {
     var viewTitle: String! { get set }
+    var displayErrorMessage: String? { get set }
     var presenter: RecordingListModulePresenterProtocol? { get set }
     var recordings: [Recording]! { get set }
     func reloadData( with recordings: [Recording] )

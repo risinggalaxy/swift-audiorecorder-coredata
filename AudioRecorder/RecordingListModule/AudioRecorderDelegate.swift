@@ -8,9 +8,6 @@
 import Foundation
 import CoreData
 
-protocol AudioRecorderDelegate: AnyObject {
-    
-    func finishedRecordingUpdateView()
+protocol AudioPlayerDelegateProtocol {
     func sendDataAndPlay( _ recording: Recording )
-    
 }

@@ -14,11 +14,11 @@ protocol RecordingListModulePresenterProtocol {
     var interactor: RecordingListModuleInteractorInputProtocol? { get set }
     var wireFrame: RecordingListModuleWireFrameProtocol? { get set }
     var selectedIndexPath: IndexPath? { get set }
-    var delegate: AudioRecorderDelegate? { get set }
-    
+    var hostView: VIEW? { get set }
     func sendReceivedRecordingToWireFrame( _ recording: Recording )
-    func presentNewView(newModule:PresentingNewModule, module: VIEW)
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording)
+    func presentRecorderModule(on hostView: VIEW)
     func pushPersistedDataToView( _ persistedData: [Recording]? )
-    
+    func passIndexPathToInteractor( _ indexPath: IndexPath ) -> IndexPath
     
 }

@@ -17,16 +17,36 @@ class PlayerModuleWireFrame: PlayerModuleWireFrameProtocol {
         let presenter = PlayerModulePresenter()
         let wireFrame = PlayerModuleWireFrame()
         view.title = view.viewTitle
-        
-        view.presenter = presenter
-        interactor.presenter = presenter
-        interactorOutput.presenter = interactor
+ 
         presenter.view = view
         presenter.interactor = interactor
+        interactorOutput.presenter = interactor
+        view.presenter = presenter
+        interactor.presenter = presenter
+        
         presenter.wireFrame = wireFrame
         
         return view
         
+    }
+    
+    static func shouldReturnView(with recording : Recording) -> VIEW {
+        let view = PlayerModuleView()
+        let interactor = PlayerModuleInteractor()
+        let interactorOutput = PlayerModuleInteractorOutput()
+        let presenter = PlayerModulePresenter()
+        let wireFrame = PlayerModuleWireFrame()
+        view.title = view.viewTitle
+ 
+        presenter.view = view
+        presenter.interactor = interactor
+        interactorOutput.presenter = interactor
+        view.presenter = presenter
+        interactor.presenter = presenter
+        presenter.wireFrame = wireFrame
+        interactorOutput.sendDataAndPlay(recording)
+        
+        return view
     }
     
 }

@@ -10,7 +10,8 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
- 
+   
+    var delegate: AudioPlayerDelegateProtocol?
     var view: RecordingListModuleViewProtocol?
     var interactor: RecordingListModuleInteractorInputProtocol?
     var wireFrame: RecordingListModuleWireFrameProtocol?
@@ -18,6 +19,8 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
     var didPresentRecorderView: Bool = false
     var timesRecorderViewWasPresented: Int = 0
+    
+    var hostView: VIEW?
     
     var didPushData: Bool = false
     var timesDataWasPushed: Int = 0
@@ -28,14 +31,14 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
     var recording: Recording?
     
-    func presentNewView(newModule:PresentingNewModule, module: VIEW) {
-        if newModule == .recorder {
-            didPresentRecorderView = true
-            timesRecorderViewWasPresented += 1
-        } else {
-            didReceiveRequestToPresentPlayer = true
-            timesReceiveRequestToPresentPlayer += 1
-        }
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
+        didReceiveRequestToPresentPlayer = true
+        timesReceiveRequestToPresentPlayer += 1
+    }
+    
+    func presentRecorderModule(on hostView: VIEW) {
+        didPresentRecorderView = true
+        timesRecorderViewWasPresented += 1
     }
     
     func pushPersistedDataToView( _ persistedData: [Recording]? ) {
@@ -47,5 +50,11 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     func sendReceivedRecordingToWireFrame(_ recording: Recording) {
         self.recording = recording
      }
+    
+    func passIndexPathToInteractor( _ indexPath: IndexPath) -> IndexPath {
+        didReceiveRequestToPresentPlayer = true
+        timesReceiveRequestToPresentPlayer += 1
+        return indexPath
+    }
     
 }

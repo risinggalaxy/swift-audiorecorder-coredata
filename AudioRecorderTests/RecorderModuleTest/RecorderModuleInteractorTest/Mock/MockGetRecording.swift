@@ -31,7 +31,6 @@ class MockGetRecordings: GetRecordingsProtocol {
     }
     
     func loadRecordings() throws -> [Recording]? {
-        
         let fetchRequest: NSFetchRequest<Recording> = Recording.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Recording.creationDate), ascending: false)]
         do {

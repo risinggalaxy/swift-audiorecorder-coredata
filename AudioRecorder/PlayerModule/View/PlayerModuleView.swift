@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayerModuleView: UIViewController ,PlayerModuleViewProtocol {
  
@@ -16,4 +17,12 @@ class PlayerModuleView: UIViewController ,PlayerModuleViewProtocol {
         super.viewDidLoad()
         view.backgroundColor = AppColors.backgroundColor
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter?.stopPlaying()
+    }
+    
+
+    
 }

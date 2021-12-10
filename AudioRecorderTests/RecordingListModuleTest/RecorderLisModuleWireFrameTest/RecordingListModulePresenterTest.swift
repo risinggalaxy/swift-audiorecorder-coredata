@@ -25,13 +25,15 @@ class RecordingListModulePresenterTest: XCTestCase {
         sut.interactor = mockInteractor
         sut.wireFrame = mockWireFrame
         mockView.presenter = sut
+        mockInteractor.presenter = sut
+        mockView.presenter = sut
     }
     
     override func tearDown() {
-        sut = nil
         mockView = nil
         mockInteractor = nil
         mockWireFrame = nil
+        sut = nil
         super.tearDown()
     }
     
@@ -41,7 +43,7 @@ class RecordingListModulePresenterTest: XCTestCase {
         let view = VIEW()
         //Act
         sut.wireFrame = mockRecordingListModuleWireFrame
-        sut.presentNewView(newModule:.recorder, module: view)
+        sut.presentRecorderModule(on: view)
         //Assert
         XCTAssertTrue(mockRecordingListModuleWireFrame.receivedAndWillPassView)
         XCTAssertEqual(mockRecordingListModuleWireFrame.timesFunctionWasCalled, 1)
@@ -57,11 +59,38 @@ class RecordingListModulePresenterTest: XCTestCase {
         
     }
     
+    func testRecordingListModulePresenter_WhenAppLaunchCanNotProvideData_ShouldBeCalledOnceAndFalse() {
+        sut.pushPersistedDataToView(nil)
+        let viewGotErrorMessage = mockView.displayErrorMessage
+        XCTAssertNotNil(viewGotErrorMessage)
+    }
+    
     
     func testRecordingListModulePresenter_WhenIndexPathReceived_ShouldGetARecodingFromInteractor() {
         let recording = mockInteractor.getRecording.addNewRecording(creationDate: Date(), data: AudioTestData.data, title: "New Recording")
         sut.sendReceivedRecordingToWireFrame(recording)
         XCTAssertNotNil(recording)
     }
+    
+    
+    func testRecordingListModulePresenter_WhenRequestForDisplayingPlayerViewIsReceived_SelectedIndexPathShouldNotBeNil() {
+        let indexPath = IndexPath(item: 0, section: 0)
+        mockView.presentPlayerViewController(with: indexPath)
+        let selectedIndexPath = sut.selectedIndexPath
+        XCTAssertNotNil(selectedIndexPath)
+        XCTAssertEqual(selectedIndexPath, indexPath)
+        
+    }
+    
+//    func testRecordingListModulePresenter_DelegateCanSendRecording_ShouldBeTrueAndRecordingShouldNotBeNil() {
+//        let recording = mockInteractor.getRecording.addNewRecording(creationDate: Date(), data: AudioTestData.data, title: "New Recording")
+//        sut.sendReceivedRecordingToWireFrame(recording)
+//        let didReceiveRecording = delegate.didReceiveRecording
+//        let timesDelegateReceivedRecording = delegate.timesDelegateReceivedRecording
+//        let recordingData = delegate.recordingData
+//        XCTAssertTrue(didReceiveRecording)
+//        XCTAssertEqual(timesDelegateReceivedRecording, 1)
+//        XCTAssertNotNil(recordingData)
+//    }
     
 }

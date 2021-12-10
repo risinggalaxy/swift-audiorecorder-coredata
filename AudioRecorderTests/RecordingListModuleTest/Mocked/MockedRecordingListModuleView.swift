@@ -18,6 +18,8 @@ class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
     var didReloadData: Bool = false
     var timesReloadDataWasCalled: Int = 0
     
+    var displayErrorMessage: String?
+    
     func reloadData( with recordings: [Recording] ) {
         didReloadData = true
         timesReloadDataWasCalled += 1

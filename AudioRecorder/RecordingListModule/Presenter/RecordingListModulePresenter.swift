@@ -15,32 +15,49 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
     var wireFrame: RecordingListModuleWireFrameProtocol?
     
-    var selectedIndexPath: IndexPath? {
+    var hostView: VIEW? {
         didSet {
-            if let indexPath = selectedIndexPath {
-                if let recording = interactor?.sendSelectedRecordingToPresenter(indexPath) {
-                    sendReceivedRecordingToWireFrame(recording)
-                }
-            }
+            print("Got the host")
         }
     }
     
-    weak var delegate: AudioRecorderDelegate?
-    
-    func presentNewView(newModule:PresentingNewModule, module: VIEW) {
-        wireFrame?.shouldPresentRecordingView(newModule: newModule, module: module)
+    var selectedIndexPath: IndexPath? {
+        didSet {
+            if let indexPath = selectedIndexPath {
+               passIndexPathToInteractor(indexPath)
+            }
+        }
     }
     
     func pushPersistedDataToView( _ persistedData: [Recording]?) {
         if let recordings = persistedData {
             view?.reloadData(with: recordings)
         } else {
-            //TODO: Notify view something went wrong
+            view?.displayErrorMessage = "Unable To Load Recordings 😩"
         }
     }
     
     func sendReceivedRecordingToWireFrame( _ recording: Recording) {
-        delegate?.sendDataAndPlay(recording)
+//        delegate?.sendDataAndPlay(recording)
     }
     
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
+        wireFrame?.presentPlayerModule(on: hostView, with: recording)
+    }
+    
+    func presentRecorderModule(on hostView: VIEW) {
+        wireFrame?.presentRecorderModule(on: hostView)
+    }
+    
+    
+    @discardableResult
+    func passIndexPathToInteractor(_ indexPath: IndexPath) -> IndexPath {
+        if let interactor = interactor {
+            if let recording = interactor.sendSelectedRecordingToPresenter(indexPath),
+                let view = hostView {
+                presentPlayerModule(on: view, with: recording)
+            }
+        }
+        return indexPath
+    }
 }

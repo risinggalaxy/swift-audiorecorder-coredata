@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
+
     
 //    static func shouldReturnView(navigationBuilder: (UIViewController) -> (UINavigationController)) -> VIEW {
 //        let view = RecordingListModule()
@@ -48,27 +49,21 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
         presenter.interactor = interactor
         presenter.wireFrame = wireFrame
         view.title = view.viewTitle
-        
         interactorOutput.updateViewAtLaunch()
-        
         return view
         
     }
     
-    func shouldPresentRecordingView(newModule:PresentingNewModule, module: VIEW) {
-        
-        
-        let recordingModule = newModule == .recorder ? NavigationGenerator.buildNavigation(rootView:
-        RecorderModuleWireFrame.shouldReturnView(),
-        showNavigationBar: false, largeTitle: false)
-        : NavigationGenerator.buildNavigation(rootView: PlayerModuleWireFrame.shouldReturnView(),
-        showNavigationBar: false, largeTitle: false)
-        
-        module.present(recordingModule, animated: true, completion: nil)
+    
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
+        let playerModule = NavigationGenerator.buildNavigation(rootView: PlayerModuleWireFrame.shouldReturnView(with: recording), showNavigationBar: false, largeTitle: false)
+        hostView.present(playerModule, animated: true, completion: nil)
     }
-
-}
-
-enum PresentingNewModule {
-    case recorder, player
+    
+    func presentRecorderModule(on hostView: VIEW) {
+        let recorderModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),showNavigationBar: false, largeTitle: false)
+        hostView.present(recorderModule, animated: true, completion: nil)
+    }
+    
+    
 }

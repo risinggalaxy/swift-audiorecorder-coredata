@@ -9,11 +9,14 @@ import Foundation
 @testable import AudioRecorder
 
 class MockRecordingListModuleWireFrame: RecordingListModuleWireFrameProtocol {
-    
+
     var receivedAndWillPassView: Bool = false
     var timesFunctionWasCalled: Int = 0
     
-    func shouldPresentRecordingView(newModule:PresentingNewModule, module: VIEW) {
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
+    }
+    
+    func presentRecorderModule(on hostView: VIEW) {
         receivedAndWillPassView = true
         timesFunctionWasCalled += 1
     }

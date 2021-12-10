@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import CoreData
 
 protocol PlayerModuleWireFrameProtocol {
     
     static func shouldReturnView() -> VIEW
+    
+    static func shouldReturnView(with recording : Recording) -> VIEW
     
 }

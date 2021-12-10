@@ -28,12 +28,13 @@ class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProto
     }
     
     func sendSelectedRecordingToPresenter(_ indexPath: IndexPath) -> Recording? {
-        if let recordings = try! getRecording.loadRecordings() {
-            let recording = recordings[indexPath.row]
-            return recording
-        } else {
-            return nil
+        do {
+            if let recordings = try getRecording.loadRecordings() {
+                return recordings.first
+            }
+        } catch let error {
+            _ = CoreDataErrorHandler.errorMessage(error.localizedDescription)
         }
+        return nil
     }
-    
 }
