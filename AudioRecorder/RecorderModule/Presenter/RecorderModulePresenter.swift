@@ -30,7 +30,12 @@ class RecorderModulePresenter: RecorderModulePresenterProtocol {
     func stopRecording() {
         if let data = audioRecorderObject.shouldManageRecord(.stop, recordingSession) {
             interactor?.persistRecording(data)
-            notificationCenter.post(name: AppNotificationNames.finishedRecording, object: nil)
+            notifyRecordingListPresenterForUpdate()
         }
+    }
+    
+    func notifyRecordingListPresenterForUpdate() {
+        let notificationName = AppNotificationNames.finishedRecording
+        notificationCenter.post(name: notificationName , object: self)
     }
 }

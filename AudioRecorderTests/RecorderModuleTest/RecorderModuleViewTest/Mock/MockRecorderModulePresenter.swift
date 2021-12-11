@@ -9,7 +9,7 @@ import Foundation
 @testable import AudioRecorder
 
 class MockRecorderModulePresenter: RecorderModulePresenterProtocol {
-    
+  
     var notificationCenter: NotificationCenter
     var view: RecorderModuleViewProtocol?
     var interactor: RecorderModuleInputInteractorProtocol?
@@ -20,6 +20,9 @@ class MockRecorderModulePresenter: RecorderModulePresenterProtocol {
     
     var didStopRecording: Bool = false
     var numberOfSessionsStopped: Int = 0
+    
+    var notificationWasPosted: Bool = true
+    var timesNotificationWasPosted: Int = 0
     
     init(notificationCenter: NotificationCenter = .default ) {
         self.notificationCenter = notificationCenter
@@ -34,4 +37,10 @@ class MockRecorderModulePresenter: RecorderModulePresenterProtocol {
         didStopRecording = true
         numberOfSessionsStopped += 1
     }
+    
+    func notifyRecordingListPresenterForUpdate() {
+        notificationWasPosted = true
+        timesNotificationWasPosted += 1
+    }
+    
 }

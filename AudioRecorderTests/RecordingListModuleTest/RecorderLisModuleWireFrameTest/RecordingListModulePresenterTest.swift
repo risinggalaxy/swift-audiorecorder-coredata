@@ -82,15 +82,12 @@ class RecordingListModulePresenterTest: XCTestCase {
         
     }
     
-//    func testRecordingListModulePresenter_DelegateCanSendRecording_ShouldBeTrueAndRecordingShouldNotBeNil() {
-//        let recording = mockInteractor.getRecording.addNewRecording(creationDate: Date(), data: AudioTestData.data, title: "New Recording")
-//        sut.sendReceivedRecordingToWireFrame(recording)
-//        let didReceiveRecording = delegate.didReceiveRecording
-//        let timesDelegateReceivedRecording = delegate.timesDelegateReceivedRecording
-//        let recordingData = delegate.recordingData
-//        XCTAssertTrue(didReceiveRecording)
-//        XCTAssertEqual(timesDelegateReceivedRecording, 1)
-//        XCTAssertNotNil(recordingData)
-//    }
+    func testRecordingListModulePresenter_WhenNotificationSent_ShouldObserveNotification() {
+        let notificationCenter = NotificationCenter()
+        sut = RecordingListModulePresenter(notificationCenter: notificationCenter)
+        XCTAssertFalse(sut.didHandleUpdateNotification)
+        notificationCenter.post(name: AppNotificationNames.finishedRecording, object: nil)
+        XCTAssertTrue(sut.didHandleUpdateNotification)
+    }
     
 }

@@ -15,8 +15,9 @@ protocol RecordingListModulePresenterProtocol {
     var wireFrame: RecordingListModuleWireFrameProtocol? { get set }
     var selectedIndexPath: IndexPath? { get set }
     var hostView: VIEW? { get set }
-    var notificationCenter: NotificationCenter { get set }
+    var notificationCenter: NotificationCenter! { get set }
     var observer: AnyObject? { get set }
+    func sendReceivedRecordingToWireFrame( _ recording: Recording )
     func presentPlayerModule(on hostView: VIEW, with recording: Recording)
     func presentRecorderModule(on hostView: VIEW)
     func pushPersistedDataToView( _ persistedData: [Recording]? )

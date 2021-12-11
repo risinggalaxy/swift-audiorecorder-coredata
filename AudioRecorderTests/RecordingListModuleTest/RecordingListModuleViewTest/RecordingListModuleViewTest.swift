@@ -41,24 +41,24 @@ class RecordingListModuleViewTest: XCTestCase {
         XCTAssertNotNil(sut.viewTitle)
     }
     
-//    func testRecordingListModuleView_WhenRequested_ShouldPresentPlayerView() {
-//        let tableView = UITableView()
-//        let indexPath = IndexPath(item: 0, section: 0)
-//        sut.tableView(tableView, didSelectRowAt: indexPath)
-//        let didReceivePresentViewRequest = presenter.didReceiveRequestToPresentPlayer
-//        let timesReceivedRequest = presenter.timesReceiveRequestToPresentPlayer
-//        XCTAssertTrue(didReceivePresentViewRequest)
-//        XCTAssertEqual(timesReceivedRequest, 1)
-//    }
-//    
-//    func testRecordingListModuleView_WhenCalled_ShouldPresentPlayerView() {
-//        let indexPath = IndexPath(item: 0, section: 0)
-//        sut.presentPlayerViewController(with: indexPath)
-//        sut.presenter = MockRecordingListModulePresenter()
-//        let didReceivePresentViewRequest = presenter.didReceiveRequestToPresentPlayer
-//        let timesReceivedRequest = presenter.timesReceiveRequestToPresentPlayer
-//        XCTAssertTrue(didReceivePresentViewRequest)
-//        XCTAssertEqual(timesReceivedRequest, 1)
-//    }
+    func testRecordingListModuleView_WhenRequested_ShouldPresentPlayerView() {
+        let tableView = UITableView()
+        let indexPath = IndexPath(item: 0, section: 0)
+        sut.tableView(tableView, didSelectRowAt: indexPath)
+        let didReceivePresentViewRequest = presenter.didReceiveRequestToPresentPlayer
+        let timesReceivedRequest = presenter.timesReceiveRequestToPresentPlayer
+        XCTAssertTrue(didReceivePresentViewRequest)
+        XCTAssertEqual(timesReceivedRequest, 1)
+    }
+    
+    func testRecordingListModuleView_WhenCalled_ShouldPresentPlayerView() {
+        let indexPath = IndexPath(item: 0, section: 0)
+        sut.presentPlayerViewController(with: indexPath)
+        sut.presenter = MockRecordingListModulePresenter()
+        let didReceivePresentViewRequest = presenter.didReceiveRequestToPresentPlayer
+        let timesReceivedRequest = presenter.timesReceiveRequestToPresentPlayer
+        XCTAssertTrue(didReceivePresentViewRequest)
+        XCTAssertEqual(timesReceivedRequest, 1)
+    }
     
 }

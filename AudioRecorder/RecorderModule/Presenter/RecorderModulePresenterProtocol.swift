@@ -15,5 +15,6 @@ protocol RecorderModulePresenterProtocol {
     func startRecording()
     func stopRecording()
     var notificationCenter: NotificationCenter { get set }
+    func notifyRecordingListPresenterForUpdate()
 }
 

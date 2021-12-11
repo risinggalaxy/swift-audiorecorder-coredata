@@ -10,11 +10,17 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
-   
+    
+  
     var view: RecordingListModuleViewProtocol?
     var interactor: RecordingListModuleInteractorInputProtocol?
     var wireFrame: RecordingListModuleWireFrameProtocol?
-    var selectedIndexPath: IndexPath?
+    var selectedIndexPath: IndexPath? {
+        didSet {
+            didReceiveRequestToPresentPlayer = true
+            timesReceiveRequestToPresentPlayer += 1
+        }
+    }
     
     var didPresentRecorderView: Bool = false
     var timesRecorderViewWasPresented: Int = 0
@@ -28,7 +34,14 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     var didReceiveRequestToPresentPlayer: Bool = false
     var timesReceiveRequestToPresentPlayer: Int = 0
     
+    var didReceiveUpdateNotification: Bool = false
+    var timesUpdateNotificationWereReceived: Int = 0
+    
     var recording: Recording?
+    
+    var notificationCenter: NotificationCenter!
+    
+    var observer: AnyObject?
     
     func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
         didReceiveRequestToPresentPlayer = true
@@ -51,9 +64,13 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
      }
     
     func passIndexPathToInteractor( _ indexPath: IndexPath) -> IndexPath {
-        didReceiveRequestToPresentPlayer = true
-        timesReceiveRequestToPresentPlayer += 1
         return indexPath
     }
+    
+    func notificationUpdate() {
+        didReceiveUpdateNotification = true
+        timesUpdateNotificationWereReceived += 1
+    }
+    
     
 }

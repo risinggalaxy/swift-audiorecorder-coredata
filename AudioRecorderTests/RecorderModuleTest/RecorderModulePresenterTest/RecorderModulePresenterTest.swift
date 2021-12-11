@@ -45,15 +45,14 @@ class RecorderModulePresenterTest: XCTestCase {
     }
     
     
-//    func testRecorderModulePresenter_WhenRecordingEnded_ShouldSendNotification() {
-//        let notificationCenter = NotificationCenter()
-//        sut = RecorderModulePresenter(notificationCenter: notificationCenter)
-//        sut.stopRecording()
-//        let notificationName = AppNotificationNames.finishedRecording
-//        let expectation = XCTNSNotificationExpectation(name: notificationName)
-//        wait(for: [expectation], timeout: 0)
-//        
-//    }
+    func testRecorderModulePresenter_WhenRecordingEnded_ShouldSendNotification() {
+        let notificationCenter = NotificationCenter()
+        sut = RecorderModulePresenter(notificationCenter: notificationCenter)
+        let notificationName = AppNotificationNames.finishedRecording
+        let expectation = XCTNSNotificationExpectation(name: notificationName, object: sut, notificationCenter: notificationCenter)
+        sut.notifyRecordingListPresenterForUpdate()
+        wait(for: [expectation], timeout: 0)
+    }
     
     
 }
