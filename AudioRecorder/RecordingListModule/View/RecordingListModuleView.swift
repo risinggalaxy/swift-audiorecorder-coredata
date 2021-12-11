@@ -11,7 +11,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     
     var displayErrorMessage: String? {
         didSet {
-            print(displayErrorMessage)
+            print(displayErrorMessage!)
         }
     }
     
@@ -46,6 +46,16 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
         view.backgroundColor = AppColors.backgroundColor
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("View did disappear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("View will appear")
+    }
+    
     override func viewWillLayoutSubviews() {
         tableView.frame = view.frame
     }
@@ -71,7 +81,12 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     
     func reloadData( with recordings: [Recording] ) {
         self.recordings = recordings
-        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        print("RECORDING COUNT: \(self.recordings.count)")
     }
     
 }
@@ -114,7 +129,7 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         return CGFloat(80)
     }
     
-    fileprivate func setupTableView() {
+    internal func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)

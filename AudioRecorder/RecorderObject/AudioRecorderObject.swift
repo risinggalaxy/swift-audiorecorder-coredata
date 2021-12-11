@@ -90,7 +90,7 @@ class AudioRecorderObject: AudioRecorderObjectProtocol {
          do {
              audioTrack = try Data(contentsOf: audioRecorder.url)
          } catch {
-             try! audioRecorderObject(.errorMessage("while getting audio data"))
+            _ =  try? audioRecorderObject(.errorMessage("while getting audio data"))
          }
          if let track = audioTrack {
              recordedTrack = track

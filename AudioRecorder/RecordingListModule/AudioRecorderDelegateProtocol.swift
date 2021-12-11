@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AudioRecorderDelegateProtocol {
+protocol AudioRecorderDelegateProtocol: AnyObject {
     func shouldRequestUpdatingTableView()
 }

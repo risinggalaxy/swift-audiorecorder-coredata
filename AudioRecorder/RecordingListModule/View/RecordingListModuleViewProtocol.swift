@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol RecordingListModuleViewProtocol: AnyObject {
+protocol RecordingListModuleViewProtocol {
     var viewTitle: String! { get set }
     var displayErrorMessage: String? { get set }
     var presenter: RecordingListModulePresenterProtocol? { get set }

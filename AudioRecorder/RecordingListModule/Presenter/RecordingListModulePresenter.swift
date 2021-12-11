@@ -8,12 +8,15 @@
 import Foundation
 
 class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
-    
+   
     var view: RecordingListModuleViewProtocol?
     
     var interactor: RecordingListModuleInteractorInputProtocol?
     
     var wireFrame: RecordingListModuleWireFrameProtocol?
+    
+    var notificationCenter: NotificationCenter
+    var observer: AnyObject?
     
     var hostView: VIEW? {
         didSet {
@@ -29,16 +32,20 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
         }
     }
     
+    
+    init(notificationCenter: NotificationCenter = .default ) {
+        self.notificationCenter = notificationCenter
+        self.observer = notificationCenter.addObserver(forName: AppNotificationNames.finishedRecording, object: nil, queue: .main, using: { [weak self] _ in
+            self?.notificationUpdate()
+        })
+    }
+    
     func pushPersistedDataToView( _ persistedData: [Recording]?) {
         if let recordings = persistedData {
             view?.reloadData(with: recordings)
         } else {
             view?.displayErrorMessage = "Unable To Load Recordings 😩"
         }
-    }
-    
-    func sendReceivedRecordingToWireFrame( _ recording: Recording) {
-//        delegate?.sendDataAndPlay(recording)
     }
     
     func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
@@ -60,4 +67,14 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
         }
         return indexPath
     }
+
+    func notificationUpdate() {
+        guard let recordings = try? interactor?.getRecording.loadRecordings() else {
+            view?.displayErrorMessage = "Something went wrong"
+            return
+        }
+        
+        view?.reloadData(with: recordings)
+    }
+    
 }

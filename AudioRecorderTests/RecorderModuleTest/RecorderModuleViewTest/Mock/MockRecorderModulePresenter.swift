@@ -10,6 +10,7 @@ import Foundation
 
 class MockRecorderModulePresenter: RecorderModulePresenterProtocol {
     
+    var notificationCenter: NotificationCenter
     var view: RecorderModuleViewProtocol?
     var interactor: RecorderModuleInputInteractorProtocol?
     var wireFrame: RecorderModuleWireFrameProtocol?
@@ -19,6 +20,10 @@ class MockRecorderModulePresenter: RecorderModulePresenterProtocol {
     
     var didStopRecording: Bool = false
     var numberOfSessionsStopped: Int = 0
+    
+    init(notificationCenter: NotificationCenter = .default ) {
+        self.notificationCenter = notificationCenter
+    }
     
     func startRecording() {
         didStartRecording = true

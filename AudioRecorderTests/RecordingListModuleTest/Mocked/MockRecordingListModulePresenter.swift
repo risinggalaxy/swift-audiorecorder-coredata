@@ -11,7 +11,6 @@ import CoreData
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
    
-    var delegate: AudioPlayerDelegateProtocol?
     var view: RecordingListModuleViewProtocol?
     var interactor: RecordingListModuleInteractorInputProtocol?
     var wireFrame: RecordingListModuleWireFrameProtocol?

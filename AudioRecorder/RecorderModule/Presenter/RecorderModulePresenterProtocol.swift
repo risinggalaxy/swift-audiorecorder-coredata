@@ -14,5 +14,6 @@ protocol RecorderModulePresenterProtocol {
     var wireFrame: RecorderModuleWireFrameProtocol? { get set }
     func startRecording()
     func stopRecording()
+    var notificationCenter: NotificationCenter { get set }
 }
 

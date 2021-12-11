@@ -50,7 +50,6 @@ extension GetRecordings {
         }
     }
     
-    
     @discardableResult
     public func update( _ recording: Recording ) -> Recording {
         coreDataContainer.saveContext(managedObjectContext)
@@ -61,6 +60,4 @@ extension GetRecordings {
         managedObjectContext.delete(recording)
         coreDataContainer.saveContext(managedObjectContext)
     }
-
-    
 }
