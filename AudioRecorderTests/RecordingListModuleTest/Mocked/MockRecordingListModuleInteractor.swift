@@ -10,9 +10,10 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol {
-
+    
     var getRecording: GetRecordingsProtocol!
     var presenter: RecordingListModulePresenterProtocol?
+    var InteractorOutPut: RecordingListInteractorOutput?
     
     var didProvideOnAppLaunch: Bool = false
     var timesUpdateWasCalledAtLaunch: Int = 0
@@ -35,6 +36,10 @@ class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProto
         } catch let error {
             _ = CoreDataErrorHandler.errorMessage(error.localizedDescription)
         }
+        return nil
+    }
+    
+    func shouldSendLatestRecordingToPresenter() -> Recording? {
         return nil
     }
 }

@@ -11,9 +11,7 @@ import CoreData
 class RecorderModuleWireFrame: RecorderModuleWireFrameProtocol {
     
     static func shouldReturnView() -> VIEW {
-        
-        let coreDataService = CoreDataService()
-        let getRecordings = GetRecordings(managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
+        let getRecordings = GetRecordings(managedObjectContext: CoreDataService.sharedInstance.mainContext, coreDataService: CoreDataService.sharedInstance)
         let view = RecorderModuleView()
         let interactor = RecorderModuleInteractor(getRecordings)
         let interactorOutput = RecorderModuleInteractorOutput()

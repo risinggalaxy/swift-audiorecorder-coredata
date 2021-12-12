@@ -16,7 +16,7 @@ class RecorderModulePresenter: RecorderModulePresenterProtocol {
     var audioRecorderObject: AudioRecorderObject!
     var recordingSession: AVAudioSession!
     var notificationCenter: NotificationCenter
-    
+
     init(notificationCenter: NotificationCenter = .default) {
         recordingSession = AVAudioSession.sharedInstance()
         audioRecorderObject = AudioRecorderObject(recordingSession: recordingSession)

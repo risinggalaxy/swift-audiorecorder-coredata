@@ -11,6 +11,8 @@ import CoreData
 
 class MockGetRecordings: GetRecordingsProtocol {
     
+    var tempRecordingCopy: Recording?
+    
     var managedObjectContext: NSManagedObjectContext!
     
     var coreDataContainer: CoreDataServiceProtocol!

@@ -21,7 +21,6 @@ class GetRecordingsTest: XCTestCase {
         coreDataService = MockCoreDataService()
         sut = GetRecordings(managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
         creationDate = Date()
-        recording = sut.addNewRecording(creationDate: creationDate, data: AudioTestData.data, title: "Test Recording")
     }
     
     override func tearDown() {
@@ -35,6 +34,8 @@ class GetRecordingsTest: XCTestCase {
     
     func testGetRecording_WhenDataGiven_ShouldCreateAnObject() {
         //Arrange
+        creationDate = Date()
+        recording = sut.addNewRecording(creationDate: creationDate, data: AudioTestData.data, title: "Test Recording")
         //Act
         //Assert
         XCTAssertNotNil(recording, "Recording should not be nil")
@@ -49,6 +50,8 @@ class GetRecordingsTest: XCTestCase {
     
     func testGetRecording_WhenLaunched_ShouldLoadRecordings() {
         //Arrange
+        
+        recording = sut.addNewRecording(creationDate: creationDate, data: AudioTestData.data, title: "Test Recording")
         //Act
         let recordings = try! sut.loadRecordings()
         //Assert
@@ -61,6 +64,7 @@ class GetRecordingsTest: XCTestCase {
     
     func testGetRecordings_WhenTitleModified_UpdatesMustPersist() {
         //Arrange
+        recording = sut.addNewRecording(creationDate: creationDate, data: AudioTestData.data, title: "Test Recording")
         //Act
         guard let updatingRecording = try!  sut.loadRecordings()?.first else { return }
         updatingRecording.title = "My New Update"
@@ -71,6 +75,7 @@ class GetRecordingsTest: XCTestCase {
     
     func testGetRecordings_WhenRequested_RecordingShouldBeDeleted() {
         //Arrange
+        recording = sut.addNewRecording(creationDate: creationDate, data: AudioTestData.data, title: "Test Recording")
         //Act
         var recordings = try! sut.loadRecordings()
         //Assert
@@ -103,4 +108,5 @@ class GetRecordingsTest: XCTestCase {
             XCTAssertNil(error, "New recording was successfully persisted")
         }
     }
+
 }

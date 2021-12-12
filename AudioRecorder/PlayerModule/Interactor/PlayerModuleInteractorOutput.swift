@@ -13,7 +13,6 @@ class PlayerModuleInteractorOutput: PlayerModuleInteractorOutputProtocol {
     
     var presenter: PlayerModuleInteractorInputProtocol? {
         didSet {
-            print("Hoi")
         }
     }
     
@@ -23,11 +22,8 @@ class PlayerModuleInteractorOutput: PlayerModuleInteractorOutputProtocol {
                   //TODO: Notify Peresenter
                   return
               }
-        
         let recordingReplica = RecordingReplica(id: id, title: title, creationDate: creationDate, data: data)
         presenter?.recordingReplica = recordingReplica
-        
-        
     }
     
 }

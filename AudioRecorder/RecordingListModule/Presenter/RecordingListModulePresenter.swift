@@ -10,9 +10,7 @@ import Foundation
 class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
  
     var view: RecordingListModuleViewProtocol?
-    
     var interactor: RecordingListModuleInteractorInputProtocol?
-    
     var wireFrame: RecordingListModuleWireFrameProtocol?
     var notificationCenter: NotificationCenter!
     var observer: AnyObject?
@@ -20,7 +18,6 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
     var hostView: VIEW? {
         didSet {
-            print("Got the host")
         }
     }
     
@@ -36,7 +33,6 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
     init(notificationCenter: NotificationCenter = .default ) {
         self.notificationCenter = notificationCenter
         self.observer = notificationCenter.addObserver(forName: AppNotificationNames.finishedRecording, object: nil, queue: .main, using: { [weak self] _ in
-            
             self?.notificationUpdate()
         })
     }
@@ -74,11 +70,11 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
     func notificationUpdate() {
         didHandleUpdateNotification = true
-        guard let recordings = try? interactor?.getRecording.loadRecordings() else {
+        guard let recording = interactor?.shouldSendLatestRecordingToPresenter() else  {
             view?.displayErrorMessage = "Something went wrong"
             return
         }
-        view?.reloadData(with: recordings)
+        view?.append(recording)
     }
     
 }

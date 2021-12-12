@@ -35,8 +35,7 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
     
     static func shouldReturnView() -> VIEW {
         
-        let coreDataService = CoreDataService()
-        let getRecordings = GetRecordings(managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
+        let getRecordings = GetRecordings(managedObjectContext: CoreDataService.sharedInstance.mainContext, coreDataService: CoreDataService.sharedInstance)
         let view = RecordingListModuleView()
         let interactor = RecordingListModuleInteractor(getRecordings)
         let interactorOutput = RecordingListInteractorOutput()

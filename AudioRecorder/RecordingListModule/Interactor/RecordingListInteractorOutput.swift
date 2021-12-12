@@ -14,4 +14,5 @@ class RecordingListInteractorOutput: RecordingListModuleInteractorOutputProtocol
     func updateViewAtLaunch() {
         _ = presenter?.shouldProvideAllPersistedDataAtAppLaunch()
     }
+    
 }

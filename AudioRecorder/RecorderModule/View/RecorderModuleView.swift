@@ -13,6 +13,8 @@ class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
     var statusTitle: String! = "Recording"
     var presenter: RecorderModulePresenterProtocol?
     
+    private var buttonWasTapped: Bool = false
+    
     let statusLabel: UILabel = {
         let frame = CGRect(origin: .zero, size: CGSize(width: 220, height: 50))
         let label = UILabel(frame: frame)
@@ -51,7 +53,9 @@ class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        stopRecording()
+        if !buttonWasTapped {
+            stopRecording()
+        }
     }
     
     fileprivate func setupStatusLabel() {
@@ -90,6 +94,7 @@ class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
     }
     
     @objc func stopRecordButtonWasTapped() {
+        buttonWasTapped = true
         self.dismiss(animated: true) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.stopRecording()

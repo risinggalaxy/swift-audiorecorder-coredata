@@ -59,16 +59,6 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
         view.backgroundColor = AppColors.backgroundColor
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("View did disappear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("View will appear")
-    }
-    
     override func viewWillLayoutSubviews() {
         tableView.frame = view.frame
     }
@@ -102,19 +92,19 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     }
     
     func reloadData( with recordings: [Recording] ) {
-        DispatchQueue.main.async {
-            self.recordings = recordings
-            self.tableView.reloadData()
-            print("RECORDING COUNT: \(self.recordings.count)")
-        }
+        self.recordings = recordings
+        self.tableView.reloadData()
     }
+    
+    func append(_ recording: Recording) {
+        self.recordings.insert(recording, at: 0)
+        self.tableView.reloadData()
+    }
+    
 }
 
 
-
-
 extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -34,4 +34,11 @@ class RecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol 
             return nil
         }
     }
+    
+    func shouldSendLatestRecordingToPresenter() -> Recording? {
+        guard let recording = try? getRecording.loadRecordings()?.first else {
+            return nil
+        }
+        return recording
+    }
 }

@@ -14,5 +14,6 @@ protocol RecordingListModuleViewProtocol {
     var presenter: RecordingListModulePresenterProtocol? { get set }
     var recordings: [Recording]! { get set }
     func reloadData( with recordings: [Recording] )
+    func append( _ recording: Recording )
     func presentPlayerViewController(with indexPath: IndexPath)
 }
