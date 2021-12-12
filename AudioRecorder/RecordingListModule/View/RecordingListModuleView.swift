@@ -138,7 +138,11 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
             guard let strongSelf = self else { return }
             let recording = strongSelf.recordings[indexPath.row]
             //TODO:
-            strongSelf.presentEditAlertController(on: strongSelf.self, for: recording)
+            guard let recordingTitle = recording.title else {
+                strongSelf.displayErrorMessage = "Unable to find recording's title"
+                return
+            }
+            strongSelf.presentAlertController(recordingTitle, with: recording, from: indexPath)
         }
         action.backgroundColor = AppColors.editAction
         action.image = UIImage(systemName: "scissors.badge.ellipsis")
@@ -191,9 +195,36 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         completion()
     }
     
-    //TODO:
-    func presentEditAlertController(on module: VIEW, for editingObject: Recording) {
-        presenter?.presentEditAlertController(on: module, for: editingObject)
+    //TODO
+    func presentAlertController( _ recordingName: String, with recording: Recording, from indexPath: IndexPath ) {
+        currentSelectedIndexPath = indexPath
+        let message: String = "You are about to change recordings title"
+        let title: String = "Editing"
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.text = recordingName
+            textField.textAlignment = .left
+        }
+        let alertAction = UIAlertAction(title: "Done", style: .default) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            //TODO:
+            guard let newTitle = alertController.textFields?.first?.text else {
+                strongSelf.displayErrorMessage = "Unable to find and textfields"
+                return
+            }
+            let adjustedRecording = recording
+            if !newTitle.isEmpty && newTitle != recordingName {
+                adjustedRecording.title = newTitle
+                strongSelf.presenter?.update()
+                strongSelf.recordings.remove(at: indexPath.row)
+                strongSelf.recordings.insert(adjustedRecording, at: indexPath.row)
+                strongSelf.tableView.reloadData()
+            }
+        }
+        
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+        
     }
     
 }

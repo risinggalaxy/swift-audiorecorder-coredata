@@ -62,25 +62,6 @@ class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
     func presentRecorderModule(on hostView: VIEW) {
         let recorderModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),showNavigationBar: false, largeTitle: false)
         hostView.present(recorderModule, animated: true, completion: nil)
-    }
-    
-    //TODO:
-    func presentAlertController(on hostView: VIEW, with title: String, and message: String) {
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Test"
-            textField.textAlignment = .left
-        }
-        let alertAction = UIAlertAction(title: "Done", style: .default) { _ in
-            print("Done")
-        }
-        
-        alertController.addAction(alertAction)
-        
-        hostView.present(alertController, animated: true, completion: nil)
-        
-    }
-    
+    }    
     
 }

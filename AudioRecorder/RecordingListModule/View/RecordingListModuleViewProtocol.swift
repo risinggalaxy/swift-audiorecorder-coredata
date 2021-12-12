@@ -18,5 +18,5 @@ protocol RecordingListModuleViewProtocol {
     func append( _ recording: Recording )
     func presentPlayerViewController(with indexPath: IndexPath)
     func removeRecording(at indexPath: IndexPath, completion: (() -> Void))
-    func presentEditAlertController( on module: VIEW, for editingObject: Recording )
+    func presentAlertController( _ recordingName: String, with recording: Recording, from indexPath: IndexPath) 
 }

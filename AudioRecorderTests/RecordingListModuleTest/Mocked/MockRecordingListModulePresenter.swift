@@ -10,7 +10,6 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
-   
     
     var view: RecordingListModuleViewProtocol?
     var interactor: RecordingListModuleInteractorInputProtocol?

@@ -91,10 +91,6 @@ class RecordingListModulePresenterTest: XCTestCase {
     }
     
     func testRecordingListModulePresenter_WhenDeleteRequested_ShouldReceiveAndPassRecoringToInteractor() {
-        
-//        sut.askInteractorToDelete(recording)
-        
-        
     }
     
 }

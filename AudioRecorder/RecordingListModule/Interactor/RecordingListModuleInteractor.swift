@@ -47,4 +47,8 @@ class RecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol 
         //TODO:
         getRecording.delete(recording)
     }
+    
+    func update() {
+        getRecording.update()
+    }
 }

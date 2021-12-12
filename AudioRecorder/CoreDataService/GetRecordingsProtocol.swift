@@ -13,6 +13,6 @@ protocol GetRecordingsProtocol {
     var coreDataContainer: CoreDataServiceProtocol! { get set }
     func addNewRecording(creationDate: Date, data: Data, title: String) -> Recording
     func loadRecordings() throws -> [Recording]?
-    func update( _ recording: Recording ) -> Recording
+    func update()
     func delete( _ recording: Recording)
 }

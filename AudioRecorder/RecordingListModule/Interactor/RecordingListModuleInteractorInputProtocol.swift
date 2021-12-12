@@ -16,5 +16,5 @@ protocol RecordingListModuleInteractorInputProtocol {
     func sendSelectedRecordingToPresenter( _ indexPath: IndexPath ) -> Recording?
     func shouldSendLatestRecordingToPresenter() -> Recording?
     func delete(_ recording: Recording) 
-    
+    func update() 
 }
