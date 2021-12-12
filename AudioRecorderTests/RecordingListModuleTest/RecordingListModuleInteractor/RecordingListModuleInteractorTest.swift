@@ -51,4 +51,9 @@ class RecordingListModuleInteractorTest: XCTestCase {
         let selectedRecording = sut.sendSelectedRecordingToPresenter(indexPath)
         XCTAssertNotNil(selectedRecording)
     }
+    
+    func testRecorderModuleInteractor_WhenDeleteRequested_ShouldRemoveRecordingFromDataBase() {
+        
+    }
+    
 }

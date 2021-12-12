@@ -9,8 +9,8 @@ import Foundation
 @testable import AudioRecorder
 
 class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
-   
     
+    var currentSelectedIndexPath: IndexPath?
     var viewTitle: String!
     var presenter: RecordingListModulePresenterProtocol?
     var recordings: [Recording]!
@@ -31,4 +31,9 @@ class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
     }
 
     func append(_ recording: Recording) {}
+    
+    func removeRecording(at indexPath: IndexPath, completion: (() -> Void)) {
+        currentSelectedIndexPath = indexPath
+        completion()
+    }
 }

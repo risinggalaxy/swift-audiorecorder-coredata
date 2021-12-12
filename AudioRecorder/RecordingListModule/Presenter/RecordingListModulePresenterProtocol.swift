@@ -17,10 +17,13 @@ protocol RecordingListModulePresenterProtocol {
     var hostView: VIEW? { get set }
     var notificationCenter: NotificationCenter! { get set }
     var observer: AnyObject? { get set }
+    var recordingBeingModified: Recording? { get set }
     func sendReceivedRecordingToWireFrame( _ recording: Recording )
     func presentPlayerModule(on hostView: VIEW, with recording: Recording)
     func presentRecorderModule(on hostView: VIEW)
     func pushPersistedDataToView( _ persistedData: [Recording]? )
     func passIndexPathToInteractor( _ indexPath: IndexPath ) -> IndexPath
     func notificationUpdate()
+    func askInteractorToDelete( _ recording: Recording)
+    func presentEditAlertController( on module: VIEW, for editingObject: Recording )
 }

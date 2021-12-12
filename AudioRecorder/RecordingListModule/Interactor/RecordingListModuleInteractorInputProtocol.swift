@@ -15,5 +15,6 @@ protocol RecordingListModuleInteractorInputProtocol {
     func shouldProvideAllPersistedDataAtAppLaunch()
     func sendSelectedRecordingToPresenter( _ indexPath: IndexPath ) -> Recording?
     func shouldSendLatestRecordingToPresenter() -> Recording?
+    func delete(_ recording: Recording) 
     
 }

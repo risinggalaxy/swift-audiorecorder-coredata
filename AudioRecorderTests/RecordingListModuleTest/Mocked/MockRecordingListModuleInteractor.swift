@@ -10,6 +10,7 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol {
+  
     
     var getRecording: GetRecordingsProtocol!
     var presenter: RecordingListModulePresenterProtocol?
@@ -41,5 +42,8 @@ class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProto
     
     func shouldSendLatestRecordingToPresenter() -> Recording? {
         return nil
+    }
+    
+    func delete(_ recording: Recording) {
     }
 }

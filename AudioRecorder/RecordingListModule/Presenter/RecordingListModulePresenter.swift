@@ -14,6 +14,12 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
     var wireFrame: RecordingListModuleWireFrameProtocol?
     var notificationCenter: NotificationCenter!
     var observer: AnyObject?
+    var recordingBeingModified: Recording? {
+        didSet {
+            //TODO:
+            print("Got Recording")
+        }
+    }
     var didHandleUpdateNotification: Bool = false
     
     var hostView: VIEW? {
@@ -77,4 +83,14 @@ class RecordingListModulePresenter: RecordingListModulePresenterProtocol {
         view?.append(recording)
     }
     
+    func askInteractorToDelete( _ recording: Recording) {
+        //TODO:
+        interactor?.delete(recording)
+    }
+    
+    //TODO:
+    func presentEditAlertController(on module: VIEW, for editingObject: Recording) {
+        recordingBeingModified = editingObject
+        wireFrame?.presentAlertController(on: module, with: "Editing", and: "You are about to change the recording title")
+    }
 }

@@ -61,4 +61,28 @@ class RecordingListModuleViewTest: XCTestCase {
         XCTAssertEqual(timesReceivedRequest, 1)
     }
     
+    func testRecordingListModuleView_WhenRequestingDelete_ResultShouldNotBeNil() {
+        let tableView = UITableView()
+        let indexPath = IndexPath(item: 1, section: 1)
+        let result = sut.tableView(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
+        XCTAssertNotNil(result)
+    }
+    
+    func testRecordingListModuleView_WhenRequestingEdit_ResultShouldNotBeNil() {
+        let tableView = UITableView()
+        let indexPath = IndexPath(item: 1, section: 1)
+        let result = sut.tableView(tableView, leadingSwipeActionsConfigurationForRowAt: indexPath)
+        XCTAssertNotNil(result)
+    }
+    
+    func testRecordingListModuleView_WhenRequestingAction_CurrentSelectedIndexPathShouldNotBeNil() {
+        XCTAssertNil(sut.currentSelectedIndexPath)
+        let indexPath = IndexPath(item: 1, section: 1)
+        sut.removeRecording(at: indexPath) {
+            //TODO: add expectation 
+        }
+        XCTAssertNotNil(sut.currentSelectedIndexPath)
+        XCTAssertEqual(sut.currentSelectedIndexPath, indexPath)
+    }
+    
 }

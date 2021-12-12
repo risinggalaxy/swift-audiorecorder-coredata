@@ -90,4 +90,11 @@ class RecordingListModulePresenterTest: XCTestCase {
         XCTAssertTrue(sut.didHandleUpdateNotification)
     }
     
+    func testRecordingListModulePresenter_WhenDeleteRequested_ShouldReceiveAndPassRecoringToInteractor() {
+        
+//        sut.askInteractorToDelete(recording)
+        
+        
+    }
+    
 }

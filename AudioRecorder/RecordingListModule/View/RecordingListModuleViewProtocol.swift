@@ -13,7 +13,10 @@ protocol RecordingListModuleViewProtocol {
     var displayErrorMessage: String? { get set }
     var presenter: RecordingListModulePresenterProtocol? { get set }
     var recordings: [Recording]! { get set }
+    var currentSelectedIndexPath: IndexPath? { get set}
     func reloadData( with recordings: [Recording] )
     func append( _ recording: Recording )
     func presentPlayerViewController(with indexPath: IndexPath)
+    func removeRecording(at indexPath: IndexPath, completion: (() -> Void))
+    func presentEditAlertController( on module: VIEW, for editingObject: Recording )
 }

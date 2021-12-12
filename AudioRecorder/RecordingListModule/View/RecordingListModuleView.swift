@@ -9,6 +9,8 @@ import UIKit
 
 class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol {
     
+    var currentSelectedIndexPath: IndexPath?
+    
     var displayErrorMessage: String? {
         didSet {
             errorLabel.isHidden = false
@@ -31,9 +33,12 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     var recordings: [Recording]! = []
     var presenter: RecordingListModulePresenterProtocol?
     
+    
+    
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(RecordingCell.self, forCellReuseIdentifier: ReuseableCellIdentifier.recordingCell.rawValue)
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -103,7 +108,6 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     
 }
 
-
 extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -117,6 +121,7 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentSelectedIndexPath = indexPath
         presentPlayerViewController(with: indexPath)
     }
     
@@ -128,13 +133,41 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        //TODO: Add Delete Action
-        return nil
+        let action = UIContextualAction(style: .destructive, title: "Edit") {[weak self] _, _ , _ in
+            //TODO: Add Delete action
+            guard let strongSelf = self else { return }
+            let recording = strongSelf.recordings[indexPath.row]
+            //TODO:
+            strongSelf.presentEditAlertController(on: strongSelf.self, for: recording)
+        }
+        action.backgroundColor = AppColors.editAction
+        action.image = UIImage(systemName: "scissors.badge.ellipsis")
+        let editAction = UISwipeActionsConfiguration(actions: [action])
+        return editAction
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        //TODO: Add Edit Action
-        return nil
+        let action = UIContextualAction(style: .destructive, title: "Remove") { [weak self] _, _ , _ in
+            //TODO:
+            guard let strongSelf = self else { return }
+            strongSelf.removeRecording(at: indexPath, completion: {
+                let recording = strongSelf.recordings[indexPath.row]
+                tableView.performBatchUpdates {
+                    strongSelf.presenter?.askInteractorToDelete(recording)
+                    strongSelf.recordings.remove(at: indexPath.row)
+                    strongSelf.tableView.deleteRows(at: [indexPath], with: .left)
+                } completion: { success in
+                    if success {
+                        strongSelf.tableView.reloadData()
+                    }
+                }
+                
+            })
+        }
+        action.backgroundColor = AppColors.deleteAction
+        action.image = UIImage(systemName: "bin.xmark")
+        let deleteAction = UISwipeActionsConfiguration(actions: [action])
+        return deleteAction
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -150,6 +183,17 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     func presentPlayerViewController( with indexPath: IndexPath) {
         presenter?.hostView = self
         presenter?.selectedIndexPath = indexPath
+    }
+     
+    //TODO:
+    func removeRecording(at indexPath: IndexPath, completion: (() -> Void)) {
+        currentSelectedIndexPath = indexPath
+        completion()
+    }
+    
+    //TODO:
+    func presentEditAlertController(on module: VIEW, for editingObject: Recording) {
+        presenter?.presentEditAlertController(on: module, for: editingObject)
     }
     
 }
