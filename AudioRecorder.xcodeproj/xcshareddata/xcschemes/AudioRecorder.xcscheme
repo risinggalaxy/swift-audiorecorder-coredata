@@ -39,6 +39,16 @@
                ReferencedContainer = "container:AudioRecorder.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "731ACA912768ED6400A2317A"
+               BuildableName = "AudioRecorderUITests.xctest"
+               BlueprintName = "AudioRecorderUITests"
+               ReferencedContainer = "container:AudioRecorder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -14,5 +14,6 @@ protocol GetRecordingsProtocol {
     func addNewRecording(creationDate: Date, data: Data, title: String) -> Recording
     func loadRecordings() throws -> [Recording]?
     func update()
+    func update(_ recording: Recording) -> Recording
     func delete( _ recording: Recording)
 }

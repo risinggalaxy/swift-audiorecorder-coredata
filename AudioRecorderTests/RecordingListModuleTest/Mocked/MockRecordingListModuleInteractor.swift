@@ -11,7 +11,6 @@ import CoreData
 
 class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProtocol {
   
-    
     var getRecording: GetRecordingsProtocol!
     var presenter: RecordingListModulePresenterProtocol?
     var InteractorOutPut: RecordingListInteractorOutput?
@@ -45,5 +44,8 @@ class MockRecordingListModuleInteractor: RecordingListModuleInteractorInputProto
     }
     
     func delete(_ recording: Recording) {
+    }
+    
+    func update() {
     }
 }

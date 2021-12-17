@@ -33,10 +33,9 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     var recordings: [Recording]! = []
     var presenter: RecordingListModulePresenterProtocol?
     
-    
-    
     var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.contentInset = UIEdgeInsets(top: 20, left: .zero, bottom: 20, right: .zero)
         tableView.register(RecordingCell.self, forCellReuseIdentifier: ReuseableCellIdentifier.recordingCell.rawValue)
         tableView.backgroundColor = .clear
         return tableView
@@ -133,43 +132,20 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Edit") {[weak self] _, _ , _ in
-            //TODO: Add Delete action
-            guard let strongSelf = self else { return }
-            let recording = strongSelf.recordings[indexPath.row]
-            //TODO:
-            guard let recordingTitle = recording.title else {
-                strongSelf.displayErrorMessage = "Unable to find recording's title"
-                return
-            }
-            strongSelf.presentAlertController(recordingTitle, with: recording, from: indexPath)
+        let action = swipeAction(title: "Edit", imageName: "scissors.badge.ellipsis", with: .normal, and: AppColors.editAction ?? .blue, for: indexPath) {
+            [weak self] in
+            self?.swipeActionEditRecording(at: indexPath)
         }
-        action.backgroundColor = AppColors.editAction
-        action.image = UIImage(systemName: "scissors.badge.ellipsis")
         let editAction = UISwipeActionsConfiguration(actions: [action])
         return editAction
     }
     
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Remove") { [weak self] _, _ , _ in
-            //TODO:
-            guard let strongSelf = self else { return }
-            strongSelf.removeRecording(at: indexPath, completion: {
-                let recording = strongSelf.recordings[indexPath.row]
-                tableView.performBatchUpdates {
-                    strongSelf.presenter?.askInteractorToDelete(recording)
-                    strongSelf.recordings.remove(at: indexPath.row)
-                    strongSelf.tableView.deleteRows(at: [indexPath], with: .left)
-                } completion: { success in
-                    if success {
-                        strongSelf.tableView.reloadData()
-                    }
-                }
-                
-            })
+        let action = swipeAction(title: "Remove", imageName: "bin.xmark", with: .destructive, and: AppColors.deleteAction ?? .red, for: indexPath) {
+            [weak self] in
+            self?.swipeActionRemoveRecording(at: indexPath)
         }
-        action.backgroundColor = AppColors.deleteAction
-        action.image = UIImage(systemName: "bin.xmark")
         let deleteAction = UISwipeActionsConfiguration(actions: [action])
         return deleteAction
     }
@@ -189,13 +165,21 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         presenter?.selectedIndexPath = indexPath
     }
      
-    //TODO:
     func removeRecording(at indexPath: IndexPath, completion: (() -> Void)) {
         currentSelectedIndexPath = indexPath
         completion()
     }
     
-    //TODO
+    func swipeAction(title: String, imageName: String, with style: UIContextualAction.Style, and backgroundColor: UIColor, for indexPath: IndexPath, actionHandler: @escaping (() -> Void)) -> UIContextualAction {
+        let action = UIContextualAction(style: style, title: title) { _, _, _ in
+            actionHandler()
+        }
+        action.backgroundColor = backgroundColor
+        action.image = UIImage(systemName: imageName)
+        
+        return action
+    }
+    
     func presentAlertController( _ recordingName: String, with recording: Recording, from indexPath: IndexPath ) {
         currentSelectedIndexPath = indexPath
         let message: String = "You are about to change recordings title"
@@ -227,4 +211,28 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func swipeActionRemoveRecording( at indexPath: IndexPath ) {
+        removeRecording(at: indexPath, completion: {
+            let recording = recordings[indexPath.row]
+            tableView.performBatchUpdates {
+                presenter?.askInteractorToDelete(recording)
+                recordings.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+            } completion: { [weak self] success in
+                if success {
+                    self?.tableView.reloadData()
+                }
+            }
+            
+        })
+    }
+    
+    func swipeActionEditRecording(at indexPath: IndexPath ) {
+        let recording = recordings[indexPath.row]
+        guard let recordingTitle = recording.title else {
+            displayErrorMessage = "Unable to find recording's title"
+            return
+        }
+        presentAlertController(recordingTitle, with: recording, from: indexPath)
+    }
 }

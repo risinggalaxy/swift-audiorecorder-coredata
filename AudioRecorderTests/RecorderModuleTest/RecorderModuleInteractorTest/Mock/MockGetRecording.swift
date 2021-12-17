@@ -10,9 +10,7 @@ import CoreData
 @testable import AudioRecorder
 
 class MockGetRecordings: GetRecordingsProtocol {
-    
-    
-    
+   
     var tempRecordingCopy: Recording?
     
     var managedObjectContext: NSManagedObjectContext!
@@ -56,4 +54,8 @@ class MockGetRecordings: GetRecordingsProtocol {
     
     func delete(_ recording: Recording) {
     }
+    
+    func update() {
+    }
+    
 }

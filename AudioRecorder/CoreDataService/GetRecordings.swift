@@ -8,23 +8,23 @@
 import Foundation
 import CoreData
 
-/*
- When we declare a class as being final, no other class can inherit from it.
- Meaning other classes can not override the final methods in order to change its behavior – they must to use our class the way it was written.
- */
-
 public final class GetRecordings: GetRecordingsProtocol {
-    
+   
     var managedObjectContext: NSManagedObjectContext!
     var coreDataContainer: CoreDataServiceProtocol!
     
-    public required init(managedObjectContext: NSManagedObjectContext, coreDataService: CoreDataService) {
-        self.managedObjectContext = managedObjectContext
-        self.coreDataContainer = coreDataService
+    public required init(appMode: RunningMode, managedObjectContext: NSManagedObjectContext = CoreDataService.sharedInstance.mainContext, coreDataService: CoreDataService = CoreDataService()) {
+        switch appMode {
+        case .real, .none:
+            self.managedObjectContext = managedObjectContext
+            self.coreDataContainer = coreDataService
+        case .uiTest:
+            self.managedObjectContext = MockCoreDataService.mockCoreDataService.mainContext
+            self.coreDataContainer = MockCoreDataService()
+        }
     }
 
 }
-
 
 extension GetRecordings {
     
@@ -53,6 +53,12 @@ extension GetRecordings {
     public func update() {
         coreDataContainer.saveContext(managedObjectContext)
     }
+    
+    func update(_ recording: Recording) -> Recording {
+        coreDataContainer.saveContext(managedObjectContext)
+        return recording
+    }
+    
     
     public func delete( _ recording: Recording) {
         managedObjectContext.delete(recording)

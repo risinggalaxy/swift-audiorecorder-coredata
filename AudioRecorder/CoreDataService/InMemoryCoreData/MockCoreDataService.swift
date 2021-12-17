@@ -1,15 +1,17 @@
 //
 //  MockCoreDataService.swift
-//  AudioRecorderTests
+//  AudioRecorder
 //
-//  Created by YASSER FARAHI on 06/12/2021.
+//  Created by YASSER FARAHI on 17/12/2021.
 //
 
 import Foundation
 import CoreData
-@testable import AudioRecorder
 
 class MockCoreDataService: CoreDataService {
+    
+    static let mockCoreDataService = MockCoreDataService()
+    
     override init() {
         super.init()
         let persistentStoreDescription = NSPersistentStoreDescription()
@@ -24,3 +26,13 @@ class MockCoreDataService: CoreDataService {
         storeContainer = container
     }
 }
+
+
+public class AppRunningMode {
+    static var currentMode: RunningMode = .none
+}
+
+public enum RunningMode {
+    case real, uiTest, none
+}
+

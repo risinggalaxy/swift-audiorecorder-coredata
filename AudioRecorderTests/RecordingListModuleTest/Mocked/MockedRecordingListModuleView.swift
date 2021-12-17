@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 @testable import AudioRecorder
 
 class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
-    
+
     var currentSelectedIndexPath: IndexPath?
     var viewTitle: String!
     var presenter: RecordingListModulePresenterProtocol?
@@ -36,4 +37,20 @@ class MockedRecordingListModuleView: RecordingListModuleViewProtocol {
         currentSelectedIndexPath = indexPath
         completion()
     }
+    
+    func presentAlertController(_ recordingName: String, with recording: Recording, from indexPath: IndexPath) {
+    }
+    
+    func swipeActionRemoveRecording(at indexPath: IndexPath) {
+    }
+    
+    func swipeActionEditRecording(at indexPath: IndexPath) {
+    }
+    
+    func swipeAction(title: String, imageName: String, with style: UIContextualAction.Style, and backgroundColor: UIColor, for indexPath: IndexPath, actionHandler: @escaping (() -> Void)) -> UIContextualAction {
+        let action = UIContextualAction()
+        return action
+    }
+    
+    
 }

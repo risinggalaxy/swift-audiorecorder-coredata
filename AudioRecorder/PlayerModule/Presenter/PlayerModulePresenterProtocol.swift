@@ -14,6 +14,8 @@ protocol PlayerModulePresenterProtocol {
     var interactor: PlayerModuleInteractorInputProtocol? { get set }
     var wireFrame: PlayerModuleWireFrameProtocol? { get set }
     var audioPlayer: AVAudioPlayer? { get set }
+    var playButtonImage: String? { get set }
     func prepareRecordingForView( _ recording: RecordingReplica )
     func stopPlaying()
+    func playButtonHandler()
 }

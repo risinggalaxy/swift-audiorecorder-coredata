@@ -5,6 +5,8 @@
 //  Created by YASSER FARAHI on 01/12/2021.
 //
 
+//Recorder View UI Elements
+
 import UIKit
 
 class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
@@ -31,6 +33,7 @@ class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
         let image = UIImage(systemName: "circle.fill")?.withConfiguration(configuration)
         button.setImage(image, for: .normal)
         button.tintColor = AppColors.recordButtonColor
+        button.accessibilityIdentifier = "RecordingButton"
         button.addTarget(self, action: #selector(stopRecordButtonWasTapped), for: .touchUpInside)
         return button
     }()
@@ -48,7 +51,9 @@ class RecorderModuleView: UIViewController, RecorderModuleViewProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        recordingPulseAnimation()
+        if AppRunningMode.currentMode == .real {
+            recordingPulseAnimation()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -12,7 +12,7 @@ class AudioRecorderObject: AudioRecorderObjectProtocol {
     
     internal var audioRecorder: AVAudioRecorder!
     
-    var recordingSettings: [String: Int]! = [AVSampleRateKey: 12000, AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVNumberOfChannelsKey: 2, AVEncoderAudioQualityKey: AVAudioQuality.medium.rawValue]
+    var recordingSettings: [String: Int]! = [AVSampleRateKey: 12000, AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVNumberOfChannelsKey: 2, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
     
     internal var recordingSession: AVAudioSession?
     
@@ -51,11 +51,10 @@ class AudioRecorderObject: AudioRecorderObjectProtocol {
             audioRecorder.record()
             return true
         } catch {
-            try! audioRecorderObject(.failedToStartRecording)
+            _ = try? audioRecorderObject(.failedToStartRecording)
             return false
         }
     }
-    
     
     @discardableResult
     internal func stopRecording( _ recordingSession: AVAudioSession ) -> Bool {
@@ -66,9 +65,7 @@ class AudioRecorderObject: AudioRecorderObjectProtocol {
         } catch {
             try! audioRecorderObject(.failToStopRecording)
         }
-        
         shouldGetRecordedAudio()
-        
         return true
     }
     

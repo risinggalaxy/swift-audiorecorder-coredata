@@ -79,7 +79,6 @@ class RecordingListModuleViewTest: XCTestCase {
         XCTAssertNil(sut.currentSelectedIndexPath)
         let indexPath = IndexPath(item: 1, section: 1)
         sut.removeRecording(at: indexPath) {
-            //TODO: add expectation 
         }
         XCTAssertNotNil(sut.currentSelectedIndexPath)
         XCTAssertEqual(sut.currentSelectedIndexPath, indexPath)

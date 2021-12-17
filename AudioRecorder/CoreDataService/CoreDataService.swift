@@ -12,7 +12,7 @@ open class CoreDataService: CoreDataServiceProtocol {
     
     public static var modelName: String = "AudioRecorder"
     
-    static let sharedInstance = CoreDataService()
+    public static let sharedInstance = CoreDataService()
     
     public static let model: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!

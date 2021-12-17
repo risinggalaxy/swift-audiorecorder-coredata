@@ -10,7 +10,7 @@ import CoreData
 @testable import AudioRecorder
 
 class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
-    
+   
     var view: RecordingListModuleViewProtocol?
     var interactor: RecordingListModuleInteractorInputProtocol?
     var wireFrame: RecordingListModuleWireFrameProtocol?
@@ -73,4 +73,8 @@ class MockRecordingListModulePresenter: RecordingListModulePresenterProtocol {
     
     func askInteractorToDelete(_ recording: Recording) {
     }
+    
+    func update() {
+    }
+    
 }

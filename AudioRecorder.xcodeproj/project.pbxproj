@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		731ACA972768ED6400A2317A /* AudioRecorderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731ACA962768ED6400A2317A /* AudioRecorderUITestsLaunchTests.swift */; };
 		734AEC28275F5CE40038C013 /* MockRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734AEC27275F5CE40038C013 /* MockRecording.swift */; };
 		735B7E182760B46900B48D7C /* AudioRecorderObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B7E172760B46900B48D7C /* AudioRecorderObject.swift */; };
 		735B7E1A2760B48900B48D7C /* AudioRecorderObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B7E192760B48900B48D7C /* AudioRecorderObjectProtocol.swift */; };
@@ -15,6 +16,12 @@
 		735B7E212760D69A00B48D7C /* MockAVSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B7E202760D69A00B48D7C /* MockAVSession.swift */; };
 		735B7E232760ED7800B48D7C /* RecorderModuleViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B7E222760ED7800B48D7C /* RecorderModuleViewTest.swift */; };
 		735B7E252760EE4B00B48D7C /* MockRecorderModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B7E242760EE4B00B48D7C /* MockRecorderModulePresenter.swift */; };
+		735BF6B8276C92CC0046FD36 /* MockCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735BF6B7276C92CC0046FD36 /* MockCoreDataService.swift */; };
+		736420C527688E94000EB0DA /* PlayerModulePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736420C427688E94000EB0DA /* PlayerModulePresenterTest.swift */; };
+		736420C827688EB2000EB0DA /* MockPlayerModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736420C727688EB2000EB0DA /* MockPlayerModuleInteractor.swift */; };
+		736420CA27688EE1000EB0DA /* MockPlayerModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736420C927688EE1000EB0DA /* MockPlayerModulePresenter.swift */; };
+		736420CC27688F05000EB0DA /* MockPlayerModuleWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736420CB27688F05000EB0DA /* MockPlayerModuleWireFrame.swift */; };
+		736420CE27688F2F000EB0DA /* MockPlayerModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736420CD27688F2F000EB0DA /* MockPlayerModuleView.swift */; };
 		7367A0162764ABD700AB7DA4 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367A0152764ABD700AB7DA4 /* NotificationNames.swift */; };
 		73729DD42761165F00CC6C7E /* RecorderModulePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73729DD32761165F00CC6C7E /* RecorderModulePresenterTest.swift */; };
 		73729DD6276116EF00CC6C7E /* MockRecorderModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73729DD5276116EF00CC6C7E /* MockRecorderModuleInteractor.swift */; };
@@ -52,7 +59,6 @@
 		73A59AF82762023600709A41 /* MockRecordingListModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A59AF72762023600709A41 /* MockRecordingListModuleInteractor.swift */; };
 		73A59AFA276207AF00709A41 /* RecordingListModuleInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A59AF9276207AF00709A41 /* RecordingListModuleInteractorTest.swift */; };
 		73BB0832275E09E200805629 /* GetRecordingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB0831275E09E200805629 /* GetRecordingsTest.swift */; };
-		73BB0834275E0A7500805629 /* MockCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB0833275E0A7500805629 /* MockCoreDataService.swift */; };
 		73BB0837275E103100805629 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 73BB0836275E103100805629 /* sound.mp3 */; };
 		73BB083A275E247000805629 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BB0839275E247000805629 /* ErrorHandler.swift */; };
 		73C0FC19275A64EB00ED0846 /* MainControllerWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */; };
@@ -81,6 +87,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		731ACA982768ED6400A2317A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73944524275506D400075F30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7394452B275506D400075F30;
+			remoteInfo = AudioRecorder;
+		};
 		73E4E259275BA65600A50E62 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 73944524275506D400075F30 /* Project object */;
@@ -91,6 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		731ACA922768ED6400A2317A /* AudioRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		731ACA962768ED6400A2317A /* AudioRecorderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		734AEC27275F5CE40038C013 /* MockRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecording.swift; sourceTree = "<group>"; };
 		735B7E172760B46900B48D7C /* AudioRecorderObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderObject.swift; sourceTree = "<group>"; };
 		735B7E192760B48900B48D7C /* AudioRecorderObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderObjectProtocol.swift; sourceTree = "<group>"; };
@@ -99,6 +114,12 @@
 		735B7E202760D69A00B48D7C /* MockAVSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAVSession.swift; sourceTree = "<group>"; };
 		735B7E222760ED7800B48D7C /* RecorderModuleViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModuleViewTest.swift; sourceTree = "<group>"; };
 		735B7E242760EE4B00B48D7C /* MockRecorderModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecorderModulePresenter.swift; sourceTree = "<group>"; };
+		735BF6B7276C92CC0046FD36 /* MockCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataService.swift; sourceTree = "<group>"; };
+		736420C427688E94000EB0DA /* PlayerModulePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModulePresenterTest.swift; sourceTree = "<group>"; };
+		736420C727688EB2000EB0DA /* MockPlayerModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayerModuleInteractor.swift; sourceTree = "<group>"; };
+		736420C927688EE1000EB0DA /* MockPlayerModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayerModulePresenter.swift; sourceTree = "<group>"; };
+		736420CB27688F05000EB0DA /* MockPlayerModuleWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayerModuleWireFrame.swift; sourceTree = "<group>"; };
+		736420CD27688F2F000EB0DA /* MockPlayerModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayerModuleView.swift; sourceTree = "<group>"; };
 		7367A0152764ABD700AB7DA4 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		73729DD32761165F00CC6C7E /* RecorderModulePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderModulePresenterTest.swift; sourceTree = "<group>"; };
 		73729DD5276116EF00CC6C7E /* MockRecorderModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecorderModuleInteractor.swift; sourceTree = "<group>"; };
@@ -138,7 +159,6 @@
 		73A59AF72762023600709A41 /* MockRecordingListModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecordingListModuleInteractor.swift; sourceTree = "<group>"; };
 		73A59AF9276207AF00709A41 /* RecordingListModuleInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListModuleInteractorTest.swift; sourceTree = "<group>"; };
 		73BB0831275E09E200805629 /* GetRecordingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetRecordingsTest.swift; path = AudioRecorderTests/GetRecordingsTest/GetRecordingsTest.swift; sourceTree = SOURCE_ROOT; };
-		73BB0833275E0A7500805629 /* MockCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataService.swift; sourceTree = "<group>"; };
 		73BB0836275E103100805629 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		73BB0839275E247000805629 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		73C0FC18275A64EB00ED0846 /* MainControllerWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainControllerWireFrame.swift; sourceTree = "<group>"; };
@@ -168,6 +188,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		731ACA8F2768ED6400A2317A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73944529275506D400075F30 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +212,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		731ACA932768ED6400A2317A /* AudioRecorderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				731ACA962768ED6400A2317A /* AudioRecorderUITestsLaunchTests.swift */,
+			);
+			path = AudioRecorderUITests;
+			sourceTree = "<group>";
+		};
 		734AEC21275F5A050038C013 /* RecordingListModuleTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +270,34 @@
 			isa = PBXGroup;
 			children = (
 				735B7E242760EE4B00B48D7C /* MockRecorderModulePresenter.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		735BF6B6276C929A0046FD36 /* InMemoryCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				735BF6B7276C92CC0046FD36 /* MockCoreDataService.swift */,
+			);
+			path = InMemoryCoreData;
+			sourceTree = "<group>";
+		};
+		736420C327688E79000EB0DA /* PlayerModuleTest */ = {
+			isa = PBXGroup;
+			children = (
+				736420C427688E94000EB0DA /* PlayerModulePresenterTest.swift */,
+				736420C627688E9B000EB0DA /* Mock */,
+			);
+			path = PlayerModuleTest;
+			sourceTree = "<group>";
+		};
+		736420C627688E9B000EB0DA /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				736420C727688EB2000EB0DA /* MockPlayerModuleInteractor.swift */,
+				736420C927688EE1000EB0DA /* MockPlayerModulePresenter.swift */,
+				736420CB27688F05000EB0DA /* MockPlayerModuleWireFrame.swift */,
+				736420CD27688F2F000EB0DA /* MockPlayerModuleView.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -337,6 +400,7 @@
 			children = (
 				7394452E275506D400075F30 /* AudioRecorder */,
 				73E4E256275BA65600A50E62 /* AudioRecorderTests */,
+				731ACA932768ED6400A2317A /* AudioRecorderUITests */,
 				7394452D275506D400075F30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -346,6 +410,7 @@
 			children = (
 				7394452C275506D400075F30 /* AudioRecorder.app */,
 				73E4E255275BA65600A50E62 /* AudioRecorderTests.xctest */,
+				731ACA922768ED6400A2317A /* AudioRecorderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -451,17 +516,8 @@
 			isa = PBXGroup;
 			children = (
 				73BB0831275E09E200805629 /* GetRecordingsTest.swift */,
-				73BB0835275E0A7800805629 /* Mock */,
 			);
 			path = GetRecordingsTest;
-			sourceTree = "<group>";
-		};
-		73BB0835275E0A7800805629 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				73BB0833275E0A7500805629 /* MockCoreDataService.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		73C0FC15275A64CC00ED0846 /* NavigationBuilder */ = {
@@ -535,6 +591,7 @@
 		73D39055275CD94900D5C668 /* CoreDataService */ = {
 			isa = PBXGroup;
 			children = (
+				735BF6B6276C929A0046FD36 /* InMemoryCoreData */,
 				73D39056275CD95A00D5C668 /* CoreDataService.swift */,
 				73A59AF12761F94000709A41 /* CoreDataServiceProtocol.swift */,
 				73D3905A275CDD5400D5C668 /* GetRecordings.swift */,
@@ -575,6 +632,7 @@
 				735B7E1B2760B5B500B48D7C /* AudioRecorderObjectTest */,
 				73DD32F3275F8C7B001538FF /* RecorderModuleTest */,
 				734AEC21275F5A050038C013 /* RecordingListModuleTest */,
+				736420C327688E79000EB0DA /* PlayerModuleTest */,
 				73BB0830275E02F600805629 /* GetRecordingsTest */,
 			);
 			path = AudioRecorderTests;
@@ -596,6 +654,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		731ACA912768ED6400A2317A /* AudioRecorderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 731ACA9C2768ED6400A2317A /* Build configuration list for PBXNativeTarget "AudioRecorderUITests" */;
+			buildPhases = (
+				731ACA8E2768ED6400A2317A /* Sources */,
+				731ACA8F2768ED6400A2317A /* Frameworks */,
+				731ACA902768ED6400A2317A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				731ACA992768ED6400A2317A /* PBXTargetDependency */,
+			);
+			name = AudioRecorderUITests;
+			productName = AudioRecorderUITests;
+			productReference = 731ACA922768ED6400A2317A /* AudioRecorderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7394452B275506D400075F30 /* AudioRecorder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73944559275506D700075F30 /* Build configuration list for PBXNativeTarget "AudioRecorder" */;
@@ -641,6 +717,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					731ACA912768ED6400A2317A = {
+						CreatedOnToolsVersion = 13.2;
+						TestTargetID = 7394452B275506D400075F30;
+					};
 					7394452B275506D400075F30 = {
 						CreatedOnToolsVersion = 13.2;
 					};
@@ -666,11 +746,19 @@
 			targets = (
 				7394452B275506D400075F30 /* AudioRecorder */,
 				73E4E254275BA65600A50E62 /* AudioRecorderTests */,
+				731ACA912768ED6400A2317A /* AudioRecorderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		731ACA902768ED6400A2317A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7394452A275506D400075F30 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -691,6 +779,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		731ACA8E2768ED6400A2317A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				731ACA972768ED6400A2317A /* AudioRecorderUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73944528275506D400075F30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -713,6 +809,7 @@
 				73C0FC36275A780800ED0846 /* PlayerModuleProtocols.swift in Sources */,
 				738A26DD275787DA00F89B9E /* RecorderModulePresenterProtocol.swift in Sources */,
 				73C0FC28275A77B600ED0846 /* PlayerModuleViewProtocol.swift in Sources */,
+				735BF6B8276C92CC0046FD36 /* MockCoreDataService.swift in Sources */,
 				738A26E1275787F700F89B9E /* RecorderModuleWireFrameProtocol.swift in Sources */,
 				73729DE027611E9E00CC6C7E /* GetRecordingsProtocol.swift in Sources */,
 				738A26D9275787C200F89B9E /* RecorderModuleInteractorOutputProtocol.swift in Sources */,
@@ -752,15 +849,17 @@
 				73BB0832275E09E200805629 /* GetRecordingsTest.swift in Sources */,
 				73E4E267275BC02B00A50E62 /* MockRecordingListModuleWireFrame.swift in Sources */,
 				73A59AF5276200E900709A41 /* RecordingListModuleInteractorOutput.swift in Sources */,
-				73BB0834275E0A7500805629 /* MockCoreDataService.swift in Sources */,
+				736420CC27688F05000EB0DA /* MockPlayerModuleWireFrame.swift in Sources */,
 				73729DD8276118EC00CC6C7E /* MockRecorderModuleView.swift in Sources */,
 				73729DE227611F1B00CC6C7E /* MockGetRecording.swift in Sources */,
 				735B7E1D2760B5D300B48D7C /* MockAudioRecorderObjectTest.swift in Sources */,
 				73729DD6276116EF00CC6C7E /* MockRecorderModuleInteractor.swift in Sources */,
 				73A59AFA276207AF00709A41 /* RecordingListModuleInteractorTest.swift in Sources */,
 				73DD32ED275F78BA001538FF /* MockedRecordingListModuleView.swift in Sources */,
+				736420CA27688EE1000EB0DA /* MockPlayerModulePresenter.swift in Sources */,
 				73D8194A276363E000A19EBC /* MockPlayerDelegatePresenter.swift in Sources */,
 				73A59AF82762023600709A41 /* MockRecordingListModuleInteractor.swift in Sources */,
+				736420C527688E94000EB0DA /* PlayerModulePresenterTest.swift in Sources */,
 				735B7E232760ED7800B48D7C /* RecorderModuleViewTest.swift in Sources */,
 				73729DDC27611C0900CC6C7E /* RecorderModuleInteractorTest.swift in Sources */,
 				73E4E265275BBF0200A50E62 /* RecordingListModulePresenterTest.swift in Sources */,
@@ -769,6 +868,8 @@
 				73729DD42761165F00CC6C7E /* RecorderModulePresenterTest.swift in Sources */,
 				73E4E25F275BA9B500A50E62 /* RecordingListModuleViewTest.swift in Sources */,
 				734AEC28275F5CE40038C013 /* MockRecording.swift in Sources */,
+				736420CE27688F2F000EB0DA /* MockPlayerModuleView.swift in Sources */,
+				736420C827688EB2000EB0DA /* MockPlayerModuleInteractor.swift in Sources */,
 				735B7E212760D69A00B48D7C /* MockAVSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -776,6 +877,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		731ACA992768ED6400A2317A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7394452B275506D400075F30 /* AudioRecorder */;
+			targetProxy = 731ACA982768ED6400A2317A /* PBXContainerItemProxy */;
+		};
 		73E4E25A275BA65600A50E62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7394452B275506D400075F30 /* AudioRecorder */;
@@ -795,6 +901,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		731ACA9A2768ED6400A2317A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UU5J2SPKHT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.risinggalaxy.com.AudioRecorderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AudioRecorder;
+			};
+			name = Debug;
+		};
+		731ACA9B2768ED6400A2317A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UU5J2SPKHT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.risinggalaxy.com.AudioRecorderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AudioRecorder;
+			};
+			name = Release;
+		};
 		73944557275506D700075F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1023,6 +1165,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		731ACA9C2768ED6400A2317A /* Build configuration list for PBXNativeTarget "AudioRecorderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				731ACA9A2768ED6400A2317A /* Debug */,
+				731ACA9B2768ED6400A2317A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73944527275506D400075F30 /* Build configuration list for PBXProject "AudioRecorder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
