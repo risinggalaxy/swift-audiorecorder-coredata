@@ -10,12 +10,20 @@ import UIKit
 
 typealias VIEW = UIViewController
 
-protocol RecordingListViewWireFrameProtocol {
+protocol RecordingListModuleWireFrameProtocol {
     
 //    static func shouldReturnView(navigationBuilder: NavigationControllerGenerator ) -> VIEW
 //    func shouldPresentRecordingView(module: VIEW)
     
     static func shouldReturnView() -> VIEW
-    func shouldPresentRecordingView(module: VIEW)
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording)
+    func presentRecorderModule(on hostView: VIEW)
     
+}
+
+extension RecordingListModuleWireFrameProtocol {
+    static func shouldReturnView() -> VIEW {
+        let view = VIEW()
+        return view
+    }
 }

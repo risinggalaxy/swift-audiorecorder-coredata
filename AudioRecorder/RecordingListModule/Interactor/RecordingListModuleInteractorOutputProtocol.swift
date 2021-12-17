@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol RecordingListInteractorOutputProtocol {
+protocol RecordingListModuleInteractorOutputProtocol {
     
     var presenter: RecordingListModuleInteractorInputProtocol? { get set }
-    
+    func updateViewAtLaunch()
     
 }

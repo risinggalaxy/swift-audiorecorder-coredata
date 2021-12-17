@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import AVFoundation
 
 protocol PlayerModuleViewProtocol {
     
     var viewTitle: String! { get set }
+    var playButtonImage: String? { get set }
+    var displayErrorMessage: String? { get set }
     var presenter: PlayerModulePresenterProtocol? { get set }
     
 }

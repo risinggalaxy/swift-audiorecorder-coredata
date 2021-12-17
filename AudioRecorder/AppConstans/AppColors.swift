@@ -15,5 +15,13 @@ struct AppColors{
     static let unEvenCellColor = UIColor(named: "unEvenCell")
     static let recordButtonColor = UIColor(named: "recordButton")
     static let titleColor = UIColor(named: "titleColor")
+    static let backgroundColor = UIColor(named: "backgroundColor")
+    static let recordButtonTitle = UIColor(named: "recordButtonTitle")
+    static let editAction = UIColor(named: "editAction")
+    static let deleteAction = UIColor(named: "deleteAction")
     
+}
+
+enum ReuseableCellIdentifier: String {
+    case recordingCell = "recordingCell"
 }

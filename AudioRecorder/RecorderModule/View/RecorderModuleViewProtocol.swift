@@ -10,6 +10,8 @@ import Foundation
 protocol RecorderModuleViewProtocol {
     
     var viewTitle: String! { get set }
+    var statusTitle: String! { get set }
     var presenter: RecorderModulePresenterProtocol? { get set }
-    
+    func startRecording()
+    func stopRecording()
 }

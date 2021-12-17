@@ -6,9 +6,23 @@
 //
 
 import Foundation
+import CoreData
+import AVFoundation
 
 class PlayerModuleInteractorOutput: PlayerModuleInteractorOutputProtocol {
     
-    var presenter: PlayerModuleInteractorInputProtocol?
+    var presenter: PlayerModuleInteractorInputProtocol? {
+        didSet {
+        }
+    }
+    
+    func sendDataAndPlay( _ recording: Recording) {
+        guard let id = recording.id, let title = recording.title,
+              let creationDate = recording.creationDate, let data = recording.data else {
+                  return
+              }
+        let recordingReplica = RecordingReplica(id: id, title: title, creationDate: creationDate, data: data)
+        presenter?.recordingReplica = recordingReplica
+    }
     
 }

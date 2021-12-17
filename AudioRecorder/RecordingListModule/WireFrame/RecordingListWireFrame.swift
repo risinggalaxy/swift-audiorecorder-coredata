@@ -7,9 +7,10 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
-    
+class RecordingListWireFrameView: RecordingListModuleWireFrameProtocol {
+
 //    static func shouldReturnView(navigationBuilder: (UIViewController) -> (UINavigationController)) -> VIEW {
 //        let view = RecordingListModule()
 //        let interactor = RecordingListInteractor()
@@ -32,12 +33,13 @@ class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
 //    }
     
     static func shouldReturnView() -> VIEW {
-        let view = RecordingListModule()
-        let interactor = RecordingListInteractor()
-        let interactorOutput = RecordingListInteractorOutput()
-        let presenter = RecordingListPresenter()
-        let wireFrame = RecordingListWireFrameView()
         
+        let getRecordings = GetRecordings(appMode: AppRunningMode.currentMode)
+        let view = RecordingListModuleView()
+        let interactor = RecordingListModuleInteractor(getRecordings)
+        let interactorOutput = RecordingListInteractorOutput()
+        let presenter = RecordingListModulePresenter()
+        let wireFrame = RecordingListWireFrameView()
         view.presenter = presenter
         interactor.presenter = presenter
         interactorOutput.presenter = interactor
@@ -45,15 +47,20 @@ class RecordingListWireFrameView: RecordingListViewWireFrameProtocol {
         presenter.interactor = interactor
         presenter.wireFrame = wireFrame
         view.title = view.viewTitle
-    
+        interactorOutput.updateViewAtLaunch()
         return view
         
     }
     
-    func shouldPresentRecordingView(module: VIEW){
-        let recordingModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),
-                                                             showNavigationBar: false, largeTitle: false)
-        module.present(recordingModule, animated: true, completion: nil)
+    
+    func presentPlayerModule(on hostView: VIEW, with recording: Recording) {
+        let playerModule = NavigationGenerator.buildNavigation(rootView: PlayerModuleWireFrame.shouldReturnView(with: recording), showNavigationBar: false, largeTitle: false)
+        hostView.present(playerModule, animated: true, completion: nil)
     }
+    
+    func presentRecorderModule(on hostView: VIEW) {
+        let recorderModule = NavigationGenerator.buildNavigation(rootView: RecorderModuleWireFrame.shouldReturnView(),showNavigationBar: false, largeTitle: false)
+        hostView.present(recorderModule, animated: true, completion: nil)
+    }    
     
 }

@@ -8,7 +8,12 @@
 import Foundation
 
 class PlayerModuleInteractor: PlayerModuleInteractorInputProtocol {
-    
     var presenter: PlayerModulePresenterProtocol?
-    
+    var recordingReplica: RecordingReplica? {
+        didSet {
+            if let recording = recordingReplica {
+                presenter?.prepareRecordingForView(recording)
+            }
+        }
+    }
 }

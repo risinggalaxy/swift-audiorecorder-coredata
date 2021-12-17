@@ -10,5 +10,6 @@ import Foundation
 protocol PlayerModuleInteractorInputProtocol {
     
     var presenter: PlayerModulePresenterProtocol? { get set }
+    var recordingReplica: RecordingReplica? { get set }
     
 }

@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import CoreData
 
 protocol PlayerModuleInteractorOutputProtocol {
     
     var presenter: PlayerModuleInteractorInputProtocol? { get set }
+    func sendDataAndPlay( _ recording: Recording)
     
 }

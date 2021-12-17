@@ -12,6 +12,9 @@ protocol RecorderModulePresenterProtocol {
     var view: RecorderModuleViewProtocol? { get set }
     var interactor: RecorderModuleInputInteractorProtocol? { get set }
     var wireFrame: RecorderModuleWireFrameProtocol? { get set }
-    
+    func startRecording()
+    func stopRecording()
+    var notificationCenter: NotificationCenter { get set }
+    func notifyRecordingListPresenterForUpdate()
 }
 

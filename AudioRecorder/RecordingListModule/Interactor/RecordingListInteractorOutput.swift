@@ -7,12 +7,12 @@
 
 import Foundation
 
-class RecordingListInteractorOutput: RecordingListInteractorOutputProtocol {
+class RecordingListInteractorOutput: RecordingListModuleInteractorOutputProtocol {
     
-    var presenter: RecordingListModuleInteractorInputProtocol? {
-        didSet {
-            print("RecordingListInteractorOutputProtocol was set")
-        }
+    var presenter: RecordingListModuleInteractorInputProtocol?
+    
+    func updateViewAtLaunch() {
+        _ = presenter?.shouldProvideAllPersistedDataAtAppLaunch()
     }
     
 }

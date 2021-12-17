@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class RecorderModuleWireFrame: RecorderModuleWireFrameProtocol {
     
     static func shouldReturnView() -> VIEW {
-        
+        let getRecordings = GetRecordings(appMode: AppRunningMode.currentMode)
         let view = RecorderModuleView()
-        let interactor = RecorderModuleInteractor()
+        let interactor = RecorderModuleInteractor(getRecordings)
         let interactorOutput = RecorderModuleInteractorOutput()
         let presenter = RecorderModulePresenter()
         let wireFrame = RecorderModuleWireFrame()
