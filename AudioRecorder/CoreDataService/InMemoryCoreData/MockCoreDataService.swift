@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 
+//In Memory CoreData container - only used when UI and UnitTesting
 class MockCoreDataService: CoreDataService {
     
     static let mockCoreDataService = MockCoreDataService()
@@ -27,12 +28,4 @@ class MockCoreDataService: CoreDataService {
     }
 }
 
-
-public class AppRunningMode {
-    static var currentMode: RunningMode = .none
-}
-
-public enum RunningMode {
-    case real, uiTest, none
-}
 

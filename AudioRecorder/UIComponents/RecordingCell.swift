@@ -19,7 +19,7 @@ class RecordingCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: ReuseableCellIdentifier.recordingCell.rawValue)
+        super.init(style: .default, reuseIdentifier: ReusableCellIdentifier.recordingCell.rawValue)
         self.contentView.addSubview(recordingTitleLabel)
         setupRecordingTitleLabelConstraints()
     }

@@ -11,6 +11,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     
     var currentSelectedIndexPath: IndexPath?
     
+    //Only displayed if something goes wrong
     var displayErrorMessage: String? {
         didSet {
             errorLabel.isHidden = false
@@ -18,6 +19,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
         }
     }
     
+    //Only displayed if something goes wrong
     private let errorLabel: UILabel = {
         let frame = CGRect(origin: .zero, size: CGSize(width: 300, height: 500))
         let label = UILabel(frame: frame)
@@ -36,7 +38,7 @@ class RecordingListModuleView: UIViewController, RecordingListModuleViewProtocol
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.contentInset = UIEdgeInsets(top: 20, left: .zero, bottom: 20, right: .zero)
-        tableView.register(RecordingCell.self, forCellReuseIdentifier: ReuseableCellIdentifier.recordingCell.rawValue)
+        tableView.register(RecordingCell.self, forCellReuseIdentifier: ReusableCellIdentifier.recordingCell.rawValue)
         tableView.backgroundColor = .clear
         return tableView
     }()
@@ -125,7 +127,7 @@ extension RecordingListModuleView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReuseableCellIdentifier.recordingCell.rawValue, for: indexPath) as! RecordingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReusableCellIdentifier.recordingCell.rawValue, for: indexPath) as! RecordingCell
         let recording = recordings[indexPath.row]
         cell.configureCell(recording, indexPath)
         return cell

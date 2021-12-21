@@ -22,6 +22,6 @@ struct AppColors{
     
 }
 
-enum ReuseableCellIdentifier: String {
+enum ReusableCellIdentifier: String {
     case recordingCell = "recordingCell"
 }

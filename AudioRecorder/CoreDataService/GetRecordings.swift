@@ -15,7 +15,7 @@ public final class GetRecordings: GetRecordingsProtocol {
     
     public required init(appMode: RunningMode, managedObjectContext: NSManagedObjectContext = CoreDataService.sharedInstance.mainContext, coreDataService: CoreDataService = CoreDataService()) {
         switch appMode {
-        case .real, .none:
+        case .real:
             self.managedObjectContext = managedObjectContext
             self.coreDataContainer = coreDataService
         case .uiTest:
