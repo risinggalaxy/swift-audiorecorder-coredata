@@ -16,6 +16,6 @@ public class AppRunningMode {
 }
 
 public enum RunningMode {
-    case real, uiTest
+    case real, uiTest, none
 }
 

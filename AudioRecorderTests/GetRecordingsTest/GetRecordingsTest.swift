@@ -19,7 +19,7 @@ class GetRecordingsTest: XCTestCase {
     override func setUp() {
         super.setUp()
         coreDataService = MockCoreDataService()
-        sut = GetRecordings(appMode: .none, managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
+        sut = GetRecordings(appMode: .real, managedObjectContext: coreDataService.mainContext, coreDataService: coreDataService)
         creationDate = Date()
     }
     
@@ -94,7 +94,7 @@ class GetRecordingsTest: XCTestCase {
     func testGetRecordings_WhenSavingAsync_ShouldPass() {
         //Arrange
         let differentContext = coreDataService.differentContext()
-        sut = GetRecordings(appMode: .none, managedObjectContext: differentContext, coreDataService: coreDataService)
+        sut = GetRecordings(appMode: .real, managedObjectContext: differentContext, coreDataService: coreDataService)
         //Act
         expectation(forNotification: .NSManagedObjectContextDidSave, object: coreDataService.mainContext) { _ in
             return true

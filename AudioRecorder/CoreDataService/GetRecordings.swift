@@ -18,7 +18,7 @@ public final class GetRecordings: GetRecordingsProtocol {
         case .real:
             self.managedObjectContext = managedObjectContext
             self.coreDataContainer = coreDataService
-        case .uiTest:
+        case .uiTest, .none:
             self.managedObjectContext = MockCoreDataService.mockCoreDataService.mainContext
             self.coreDataContainer = MockCoreDataService()
         }
